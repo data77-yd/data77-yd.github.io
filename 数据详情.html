@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据详情 - 数据生产要素资源运营门户</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <a href="index.html"><img src="images/logo云端.png" alt="云端互联科技" class="logo-img"></a>
+      <span class="header-title">数据生产要素资源运营门户</span>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">首页</a>
+      <a href="要素市场.html">要素市场</a>
+      <a href="生产工具.html">生产工具</a>
+      <a href="数据详情.html" class="active">数据详情</a>
+    </nav>
+    <div class="header-actions">
+      <a href="管理后台登陆.html" class="btn-link">登录</a>
+      <a href="用户注册.html" class="btn-primary-sm">注册</a>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">首页</a><span>&rsaquo;</span><a href="要素市场.html">要素市场</a><span>&rsaquo;</span>店铺人员流量数据
+  </div>
+</div>
+
+<section class="detail-header">
+  <div class="container">
+    <div class="detail-main">
+      <div class="detail-image" style="background:linear-gradient(135deg,#E8F4FD,#D0EBFA);display:flex;align-items:center;justify-content:center;font-size:64px;">🏪</div>
+      <div class="detail-info">
+        <h2>店铺人员流量数据</h2>
+        <p class="subtitle">某某某区域 120 家店铺人员流量数据（2021.03 - 2021.08）</p>
+        <div class="detail-meta">
+          <span class="detail-meta-item"><strong>更新时间：</strong>2021-08-31</span>
+          <span class="detail-meta-item"><strong>数据类型：</strong>结构化</span>
+          <span class="detail-meta-item"><strong>主题：</strong>产业经济</span>
+        </div>
+        <div class="detail-meta">
+          <span class="detail-meta-item"><strong>等级：</strong><span style="color:#0A2E5A;font-weight:700;">L4</span></span>
+          <span class="detail-meta-item"><strong>密级：</strong><span style="color:#0A2E5A;font-weight:700;">S2</span></span>
+          <span class="detail-meta-item"><strong>数据量：</strong>123.23 MB</span>
+          <span class="detail-meta-item"><strong>销量：</strong>725</span>
+        </div>
+        <div style="margin:8px 0;">
+          <span class="tag">标签1</span>
+          <span class="tag">标签2</span>
+          <span class="tag">标签3</span>
+        </div>
+        <div class="detail-price">
+          <span class="price">¥268.00</span>
+        </div>
+        <div class="detail-actions">
+          <button class="btn btn-accent">加入购物车</button>
+          <button class="btn btn-primary">立即接入</button>
+          <button class="btn btn-outline">收藏</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 内容 Tab -->
+<section class="detail-section">
+  <div class="container">
+    <div class="tabs" data-tab-group="detail">
+      <button class="tab-btn active" data-tab="intro">数据介绍</button>
+      <button class="tab-btn" data-tab="api">API 文档</button>
+      <button class="tab-btn" data-tab="code">示例代码</button>
+    </div>
+
+    <div class="tab-panel active" data-tab="intro" data-tab-group="detail">
+      <div class="card"><div class="card-body">
+        <h3 style="font-size:18px;font-weight:700;color:#0A2E5A;margin-bottom:16px;">数据介绍</h3>
+        <p style="margin-bottom:12px;">本数据集覆盖某某某区域 120 家店铺的人员流量数据，总计约 40 万条记录。数据采集周期为 2021 年 3 月至 2021 年 8 月，涵盖每日分时段客流统计。</p>
+        <h4 style="font-weight:600;color:#0A2E5A;margin:16px 0 8px;">数据字段</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <thead><tr style="background:#F5F7FA;"><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">字段名</th><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">类型</th><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">说明</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">store_id</td><td style="padding:10px;border:1px solid #E8ECF1;">String</td><td style="padding:10px;border:1px solid #E8ECF1;">店铺唯一标识</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">date</td><td style="padding:10px;border:1px solid #E8ECF1;">Date</td><td style="padding:10px;border:1px solid #E8ECF1;">日期（yyyy-MM-dd）</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">hour</td><td style="padding:10px;border:1px solid #E8ECF1;">Int</td><td style="padding:10px;border:1px solid #E8ECF1;">小时（0-23）</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">visitor_count</td><td style="padding:10px;border:1px solid #E8ECF1;">Int</td><td style="padding:10px;border:1px solid #E8ECF1;">客流量（人次）</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">stay_duration_avg</td><td style="padding:10px;border:1px solid #E8ECF1;">Float</td><td style="padding:10px;border:1px solid #E8ECF1;">平均停留时长（分钟）</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">store_type</td><td style="padding:10px;border:1px solid #E8ECF1;">String</td><td style="padding:10px;border:1px solid #E8ECF1;">店铺类型（餐饮/零售/服务等）</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <div class="tab-panel" data-tab="api" data-tab-group="detail">
+      <div class="card"><div class="card-body">
+        <h3 style="font-size:18px;font-weight:700;color:#0A2E5A;margin-bottom:16px;">API 文档</h3>
+        <div style="margin-bottom:16px;">
+          <p style="margin-bottom:6px;"><strong>接口地址：</strong><code style="background:#F5F7FA;padding:2px 8px;border-radius:4px;">https://api.cloudconnect.cn/v1/store-traffic</code></p>
+          <p style="margin-bottom:6px;"><strong>返回格式：</strong>JSON</p>
+          <p style="margin-bottom:6px;"><strong>请求方式：</strong>GET / POST</p>
+        </div>
+        <h4 style="font-weight:600;color:#0A2E5A;margin:16px 0 8px;">请求参数</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:16px;">
+          <thead><tr style="background:#F5F7FA;"><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">参数</th><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">类型</th><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">必填</th><th style="padding:10px;text-align:left;border:1px solid #E8ECF1;">说明</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">api_key</td><td style="padding:10px;border:1px solid #E8ECF1;">String</td><td style="padding:10px;border:1px solid #E8ECF1;">是</td><td style="padding:10px;border:1px solid #E8ECF1;">您的 API 密钥</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">store_ids</td><td style="padding:10px;border:1px solid #E8ECF1;">Array</td><td style="padding:10px;border:1px solid #E8ECF1;">否</td><td style="padding:10px;border:1px solid #E8ECF1;">店铺 ID 列表，不传则返回所有</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">date_from</td><td style="padding:10px;border:1px solid #E8ECF1;">String</td><td style="padding:10px;border:1px solid #E8ECF1;">是</td><td style="padding:10px;border:1px solid #E8ECF1;">起始日期，格式 yyyy-MM-dd</td></tr>
+            <tr><td style="padding:10px;border:1px solid #E8ECF1;">date_to</td><td style="padding:10px;border:1px solid #E8ECF1;">String</td><td style="padding:10px;border:1px solid #E8ECF1;">是</td><td style="padding:10px;border:1px solid #E8ECF1;">结束日期，格式 yyyy-MM-dd</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px;color:#6B7B8D;margin-top:12px;">接口备注：单次请求最多返回 10,000 条记录，超出请使用分页参数 page 和 page_size。</p>
+      </div></div>
+    </div>
+
+    <div class="tab-panel" data-tab="code" data-tab-group="detail">
+      <div class="card"><div class="card-body">
+        <h3 style="font-size:18px;font-weight:700;color:#0A2E5A;margin-bottom:16px;">示例代码（PHP）</h3>
+        <div class="code-block">
+&lt;?php
+$apiKey = 'your_api_key_here';
+$url = 'https://api.cloudconnect.cn/v1/store-traffic';
+
+$params = [
+    'api_key'  => $apiKey,
+    'store_ids'=> ['ST001', 'ST002', 'ST003'],
+    'date_from'=> '2021-03-01',
+    'date_to'  => '2021-08-31',
+    'page'     => 1,
+    'page_size'=> 100
+];
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url . '?' . http_build_query($params));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $apiKey
+]);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+if ($httpCode === 200) {
+    $data = json_decode($response, true);
+    echo '获取成功，共 ' . count($data['records']) . ' 条记录';
+} else {
+    echo '请求失败，HTTP状态码：' . $httpCode;
+}
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 推荐区 -->
+<section class="recommend">
+  <div class="container">
+    <div class="section-title">猜你喜欢</div>
+    <div class="recommend-grid">
+      <div class="card product-card">
+        <div class="card-img" style="background:linear-gradient(135deg,#E8F4FD,#C8E6F5);display:flex;align-items:center;justify-content:center;font-size:40px;">🚗</div>
+        <div class="product-info">
+          <h3>城市道路车流量数据</h3>
+          <p class="desc">主要城市主干道交通流量统计</p>
+          <div class="product-footer"><span class="price">¥960</span><a href="#" class="btn btn-primary btn-sm">查看</a></div>
+        </div>
+      </div>
+      <div class="card product-card">
+        <div class="card-img" style="background:linear-gradient(135deg,#FEF3E8,#FAD8C0);display:flex;align-items:center;justify-content:center;font-size:40px;">📍</div>
+        <div class="product-info">
+          <h3>GPS 车辆轨迹数据</h3>
+          <p class="desc">全国 300+ 城市货运车辆轨迹</p>
+          <div class="product-footer"><span class="price">¥1,280</span><a href="#" class="btn btn-primary btn-sm">查看</a></div>
+        </div>
+      </div>
+      <div class="card product-card">
+        <div class="card-img" style="background:linear-gradient(135deg,#E8F0FE,#D0DFFA);display:flex;align-items:center;justify-content:center;font-size:40px;">🏪</div>
+        <div class="product-info">
+          <h3>商圈客流热力数据</h3>
+          <p class="desc">全国 500+ 商圈客流热力分布</p>
+          <div class="product-footer"><span class="price">¥2,400</span><a href="#" class="btn btn-primary btn-sm">查看</a></div>
+        </div>
+      </div>
+      <div class="card product-card">
+        <div class="card-img" style="background:linear-gradient(135deg,#FFF8E8,#FFE8B8);display:flex;align-items:center;justify-content:center;font-size:40px;">🌤️</div>
+        <div class="product-info">
+          <h3>全国气象观测数据<span class="tag tag-accent" style="margin-left:6px;">免费</span></h3>
+          <p class="desc">全国基准气象站逐日观测数据</p>
+          <div class="product-footer"><span style="color:#00D4AA;font-size:18px;font-weight:700;">免费</span><a href="#" class="btn btn-primary btn-sm">获取</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="images/logo云端.png" alt="云端互联科技" class="logo-img">
+        <h4>成都云端互联科技有限公司</h4>
+        <p>Chengdu CloudConnect Technology Co., Ltd.</p>
+      </div>
+      <div class="footer-col">
+        <h4>产品与服务</h4>
+        <a href="要素市场.html">要素市场</a>
+        <a href="生产工具.html">生产工具</a>
+        <a href="#">数据治理</a>
+        <a href="#">AI 能力</a>
+      </div>
+      <div class="footer-col">
+        <h4>快捷入口</h4>
+        <a href="管理后台登陆.html">管理后台</a>
+        <a href="我的工作台.html">我的工作台</a>
+        <a href="用户注册.html">用户注册</a>
+        <a href="#">API 文档</a>
+      </div>
+      <div class="footer-col">
+        <h4>帮助中心</h4>
+        <a href="#">新手指南</a>
+        <a href="#">常见问题</a>
+        <a href="#">联系我们</a>
+        <a href="#">意见反馈</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="#">公司介绍</a>
+        <a href="#">新闻动态</a>
+        <a href="#">加入我们</a>
+        <a href="#">隐私政策</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 成都云端互联科技有限公司 Chengdu CloudConnect Technology Co., Ltd. 保留所有权利
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的工作台 - 数据生产要素资源运营门户</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <a href="index.html"><img src="images/logo云端.png" alt="云端互联科技" class="logo-img"></a>
+      <span class="header-title">数据生产要素资源运营门户</span>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">首页</a>
+      <a href="要素市场.html">要素市场</a>
+      <a href="生产工具.html">生产工具</a>
+      <a href="数据详情.html">数据详情</a>
+    </nav>
+    <div class="header-actions">
+      <span style="color:rgba(255,255,255,.7);font-size:13px;">你好，管理员</span>
+      <a href="#" class="btn-link">退出</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title" style="text-align:left;">我的工作台</div>
+    <p style="color:#6B7B8D;margin-bottom:32px;">欢迎回来，以下是您的数据资产概览</p>
+
+    <!-- 统计卡片 -->
+    <div class="flex" style="gap:24px;margin-bottom:40px;">
+      <div class="stat-card" style="flex:1;">
+        <div class="stat-icon">📦</div>
+        <div class="stat-value">128</div>
+        <div class="stat-label">已购数据集</div>
+      </div>
+      <div class="stat-card" style="flex:1;">
+        <div class="stat-icon">🔧</div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">在用工具</div>
+      </div>
+      <div class="stat-card" style="flex:1;">
+        <div class="stat-icon">📊</div>
+        <div class="stat-value">3,456</div>
+        <div class="stat-label">API 调用次数（本月）</div>
+      </div>
+      <div class="stat-card" style="flex:1;">
+        <div class="stat-icon">💰</div>
+        <div class="stat-value">¥28,560</div>
+        <div class="stat-label">本月消费金额</div>
+      </div>
+    </div>
+
+    <div class="flex" style="gap:24px;">
+      <!-- 最近使用 -->
+      <div class="card" style="flex:1;">
+        <div class="card-body">
+          <h3 style="font-size:17px;font-weight:700;color:#0A2E5A;margin-bottom:16px;">最近使用的数据</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0F2F5;">
+              <div>
+                <div style="font-weight:600;color:#1A1A2E;">GPS 车辆轨迹数据</div>
+                <div style="font-size:12px;color:#6B7B8D;">2026-06-22 使用</div>
+              </div>
+              <a href="数据详情.html" class="btn btn-outline btn-sm">查看</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0F2F5;">
+              <div>
+                <div style="font-weight:600;color:#1A1A2E;">城市道路车流量数据</div>
+                <div style="font-size:12px;color:#6B7B8D;">2026-06-21 使用</div>
+              </div>
+              <a href="数据详情.html" class="btn btn-outline btn-sm">查看</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0F2F5;">
+              <div>
+                <div style="font-weight:600;color:#1A1A2E;">水环境监测数据</div>
+                <div style="font-size:12px;color:#6B7B8D;">2026-06-20 使用</div>
+              </div>
+              <a href="数据详情.html" class="btn btn-outline btn-sm">查看</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+              <div>
+                <div style="font-weight:600;color:#1A1A2E;">全国气象观测数据</div>
+                <div style="font-size:12px;color:#6B7B8D;">2026-06-18 使用</div>
+              </div>
+              <a href="数据详情.html" class="btn btn-outline btn-sm">查看</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 消费趋势 -->
+      <div class="card" style="flex:1;">
+        <div class="card-body">
+          <h3 style="font-size:17px;font-weight:700;color:#0A2E5A;margin-bottom:16px;">消费趋势（近6个月）</h3>
+          <div style="display:flex;align-items:flex-end;gap:20px;height:180px;padding:10px 0;">
+            <div style="flex:1;text-align:center;">
+              <div style="height:60px;background:linear-gradient(0deg,#0A2E5A,#1A5FA8);border-radius:4px 4px 0 0;margin-bottom:6px;"></div>
+              <div style="font-size:11px;color:#6B7B8D;">1月</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="height:80px;background:linear-gradient(0deg,#0A2E5A,#1A5FA8);border-radius:4px 4px 0 0;margin-bottom:6px;"></div>
+              <div style="font-size:11px;color:#6B7B8D;">2月</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="height:110px;background:linear-gradient(0deg,#0A2E5A,#1A5FA8);border-radius:4px 4px 0 0;margin-bottom:6px;"></div>
+              <div style="font-size:11px;color:#6B7B8D;">3月</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="height:95px;background:linear-gradient(0deg,#0A2E5A,#1A5FA8);border-radius:4px 4px 0 0;margin-bottom:6px;"></div>
+              <div style="font-size:11px;color:#6B7B8D;">4月</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="height:140px;background:linear-gradient(0deg,#0A2E5A,#1A5FA8);border-radius:4px 4px 0 0;margin-bottom:6px;"></div>
+              <div style="font-size:11px;color:#6B7B8D;">5月</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="height:120px;background:linear-gradient(0deg,#0A2E5A,#1A5FA8);border-radius:4px 4px 0 0;margin-bottom:6px;"></div>
+              <div style="font-size:11px;color:#6B7B8D;">6月</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快捷操作 -->
+    <div class="card" style="margin-top:24px;">
+      <div class="card-body">
+        <h3 style="font-size:17px;font-weight:700;color:#0A2E5A;margin-bottom:16px;">快捷操作</h3>
+        <div class="flex" style="gap:16px;">
+          <a href="要素市场.html" class="btn btn-primary">浏览数据市场</a>
+          <a href="生产工具.html" class="btn btn-outline">管理我的工具</a>
+          <a href="#" class="btn btn-outline">查看 API 文档</a>
+          <a href="#" class="btn btn-outline">提交工单</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="images/logo云端.png" alt="云端互联科技" class="logo-img">
+        <h4>成都云端互联科技有限公司</h4>
+        <p>Chengdu CloudConnect Technology Co., Ltd.</p>
+      </div>
+      <div class="footer-col">
+        <h4>产品与服务</h4>
+        <a href="要素市场.html">要素市场</a>
+        <a href="生产工具.html">生产工具</a>
+        <a href="#">数据治理</a>
+        <a href="#">AI 能力</a>
+      </div>
+      <div class="footer-col">
+        <h4>快捷入口</h4>
+        <a href="管理后台登陆.html">管理后台</a>
+        <a href="我的工作台.html">我的工作台</a>
+        <a href="用户注册.html">用户注册</a>
+        <a href="#">API 文档</a>
+      </div>
+      <div class="footer-col">
+        <h4>帮助中心</h4>
+        <a href="#">新手指南</a>
+        <a href="#">常见问题</a>
+        <a href="#">联系我们</a>
+        <a href="#">意见反馈</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="#">公司介绍</a>
+        <a href="#">新闻动态</a>
+        <a href="#">加入我们</a>
+        <a href="#">隐私政策</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 成都云端互联科技有限公司 Chengdu CloudConnect Technology Co., Ltd. 保留所有权利
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>数据资产入表条件自测 | 云端互联</title>
+<meta name="description" content="18道专业测评，3分钟快速诊断您的企业是否具备入表条件">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand-navy:#44546A;
+  --brand-blue:#5B9BD5;
+  --brand-orange:#ED7D31;
+  --brand-orange-light:#F5A623;
+  --dark:#1E293B;
+  --text:#334155;
+  --text-secondary:#64748B;
+  --text-light:#94A3B8;
+  --bg:#F8FAFC;
+  --bg-card:#FFFFFF;
+  --border:#E2E8F0;
+  --border-light:#F1F5F9;
+  --success:#10B981;
+  --error:#EF4444;
+  --radius:12px;
+  --radius-lg:20px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow:0 4px 16px rgba(0,0,0,.08);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.12);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif
+}
+html{font-size:16px;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--text);
+  line-height:1.6;min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased
+}
+
+/* ----- Site Header (matches main site) ----- */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:all .3s}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:#44546A;white-space:nowrap;text-decoration:none}
+.logo img{width:36px;height:36px;border-radius:8px}
+.logo-text{letter-spacing:.5px}
+.main-nav ul{display:flex;gap:4px}
+.main-nav a{display:block;padding:6px 14px;border-radius:6px;font-size:14px;color:#555;transition:all .2s;white-space:nowrap;text-decoration:none}
+.main-nav a:hover,.main-nav a.active{color:#5B9BD5;background:rgba(91,155,213,.08)}
+.main-nav a.nav-cta{color:#ED7D31;font-weight:600;background:rgba(237,125,49,.08)}
+.main-nav a.nav-cta:hover{background:rgba(237,125,49,.15)}
+.menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:0}
+.menu-toggle span{display:block;width:100%;height:2px;background:#44546A;border-radius:1px;transition:all .3s}
+
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{display:flex;align-items:center;gap:4px}
+.nav-dropdown-toggle::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:.5;transition:transform .25s}
+.nav-dropdown:hover .nav-dropdown-toggle::after{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;min-width:140px;padding:8px 0;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.1);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(8px);transition:all .25s;list-style:none;z-index:100}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.nav-dropdown-menu li{display:block}
+.nav-dropdown-menu a{display:block;padding:8px 20px;font-size:14px;color:#44546A;white-space:nowrap;transition:all .2s;text-decoration:none}
+.nav-dropdown-menu a:hover{color:#2a5298;background:#f0f4fa}
+@media(max-width:767px){
+  .nav-dropdown-menu{position:static;transform:none;box-shadow:none;opacity:1;visibility:visible;padding:0 0 0 24px;display:none}
+  .nav-dropdown.open .nav-dropdown-menu{display:block}
+  .menu-toggle{display:flex}
+  .main-nav{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;gap:2px;padding:0 16px}
+  .main-nav a{padding:12px 16px;border-radius:8px}
+}
+
+/* ----- Step Indicator ----- */
+.step-indicator{display:flex;align-items:center;justify-content:center;gap:0;padding:20px 0 0;max-width:680px;margin:0 auto}
+.step-dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .3s}
+.step-line{flex:1;height:2px;background:var(--border);max-width:60px;transition:all .3s}
+.step-dot.active,.step-dot.done{background:var(--brand-blue)}
+.step-line.done{background:var(--brand-blue)}
+.step-labels{display:flex;justify-content:space-between;max-width:500px;margin:8px auto 0;padding:0 20px}
+.step-label{font-size:11px;color:var(--text-light);text-align:center;transition:color .3s}
+.step-label.active,.step-label.done{color:var(--brand-blue);font-weight:600}
+
+/* ----- Container ----- */
+.container{max-width:480px;margin:0 auto;padding:80px 20px 0}
+
+/* Stage */
+.stage{display:none;animation:fadeSlideIn .4s ease;min-height:100vh;min-height:100dvh}
+.stage.active{display:block}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== COVER ===== */
+.cover{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:48px 0 40px;position:relative
+}
+.cover::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;background:radial-gradient(circle,rgba(91,155,213,.12) 0%,transparent 70%);
+  border-radius:50%;z-index:0;pointer-events:none
+}
+.cover>*{position:relative;z-index:1}
+.cover-badge{
+  display:inline-block;background:rgba(237,125,49,.1);color:var(--brand-orange);
+  font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;margin-bottom:24px
+}
+.cover-title{
+  font-size:28px;font-weight:700;color:var(--brand-navy);line-height:1.3;
+  margin-bottom:12px;letter-spacing:-.5px
+}
+.cover-title span{color:var(--brand-orange)}
+.cover-subtitle{font-size:15px;color:var(--text-secondary);margin-bottom:36px;line-height:1.6;max-width:320px}
+.cover-meta{display:flex;gap:32px;margin-bottom:40px}
+.cover-meta-item{text-align:center}
+.cover-meta-item .num{font-size:28px;font-weight:700;color:var(--brand-blue);display:block;line-height:1.1}
+.cover-meta-item .label{font-size:12px;color:var(--text-light);margin-top:4px}
+.cover-meta-item .divider{display:block;width:1px;background:var(--border)}
+.cover-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:48px}
+.cover-tag{
+  background:rgba(68,84,106,.08);color:var(--brand-navy);font-size:12px;
+  padding:6px 14px;border-radius:20px;font-weight:500
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 40px;border-radius:28px;font-size:16px;font-weight:600;
+  border:none;cursor:pointer;transition:all .2s;font-family:var(--font);
+  min-height:48px;min-width:48px;text-decoration:none;letter-spacing:.5px
+}
+.btn-primary{background:var(--brand-blue);color:#fff;box-shadow:0 4px 16px rgba(91,155,213,.3)}
+.btn-primary:active{transform:scale(.97);background:#4A8BC5}
+.btn-outline{background:transparent;color:var(--brand-blue);border:1.5px solid var(--brand-blue)}
+.btn-outline:active{background:rgba(91,155,213,.08)}
+.btn:disabled{opacity:.4;pointer-events:none}
+
+/* ===== QUIZ ===== */
+.quiz-progress-wrap{padding:16px 0 12px;position:sticky;top:52px;background:var(--bg);z-index:10}
+.quiz-progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.quiz-progress-num{font-size:14px;color:var(--text-secondary);font-weight:500}
+.quiz-progress-num span{color:var(--brand-blue);font-weight:700;font-size:18px}
+.progress-bar{width:100%;height:6px;background:var(--border-light);border-radius:3px;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--brand-blue),var(--brand-navy));border-radius:3px;transition:width .3s ease}
+.quiz-dimension{
+  display:inline-block;font-size:12px;color:var(--brand-blue);
+  background:rgba(91,155,213,.1);padding:4px 12px;border-radius:12px;
+  font-weight:600;margin-bottom:12px
+}
+.quiz-question{font-size:18px;font-weight:600;color:var(--dark);margin-bottom:24px;line-height:1.5}
+.quiz-options{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.quiz-option{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--bg-card);border:2px solid var(--border);border-radius:var(--radius);
+  padding:16px;cursor:pointer;transition:all .2s
+}
+.quiz-option:active{transform:scale(.98)}
+.quiz-option.selected{border-color:var(--brand-blue);background:rgba(91,155,213,.06)}
+.quiz-option-radio{
+  width:22px;height:22px;border-radius:50%;border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  margin-top:1px;transition:all .2s
+}
+.quiz-option.selected .quiz-option-radio{border-color:var(--brand-blue);background:var(--brand-blue)}
+.quiz-option.selected .quiz-option-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.quiz-option-text{font-size:14px;color:var(--text);line-height:1.5;flex:1}
+.quiz-option-label{font-weight:600;color:var(--text-secondary);margin-right:6px}
+.quiz-option.selected .quiz-option-label{color:var(--brand-blue)}
+.quiz-nav{display:flex;gap:12px;margin-bottom:24px}
+.quiz-nav .btn{flex:1}
+.quiz-dots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-bottom:32px}
+.quiz-dot{
+  width:28px;height:28px;border-radius:50%;background:var(--border-light);
+  font-size:11px;font-weight:600;color:var(--text-light);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;border:none;
+  min-width:28px;min-height:28px
+}
+.quiz-dot.answered{background:rgba(91,155,213,.12);color:var(--brand-blue)}
+.quiz-dot.current{background:var(--brand-blue);color:#fff}
+
+/* ===== RESULT ===== */
+.result-wrap{padding:24px 0}
+.result-hero{
+  background:linear-gradient(135deg,var(--brand-navy) 0%,#2D4A6F 100%);
+  border-radius:var(--radius-lg);padding:36px 24px;text-align:center;
+  color:#fff;margin-bottom:24px;position:relative;overflow:hidden
+}
+.result-hero::after{
+  content:'';position:absolute;top:-50%;right:-30%;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(237,125,49,.15) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none
+}
+.result-total{font-size:64px;font-weight:800;line-height:1;letter-spacing:-2px;position:relative;z-index:1}
+.result-total-sub{font-size:14px;opacity:.7;margin-top:4px;position:relative;z-index:1}
+.result-badge{
+  display:inline-block;padding:6px 20px;border-radius:20px;font-size:14px;
+  font-weight:600;margin-top:16px;position:relative;z-index:1
+}
+.badge-L1{background:rgba(16,185,129,.2);color:#6EE7B7}
+.badge-L2{background:rgba(91,155,213,.25);color:#93C5FD}
+.badge-L3{background:rgba(245,158,11,.2);color:#FCD34D}
+.badge-L4{background:rgba(148,163,184,.2);color:#CBD5E1}
+.result-desc{font-size:15px;margin-top:12px;line-height:1.6;opacity:.9;position:relative;z-index:1}
+.result-section{
+  background:var(--bg-card);border-radius:var(--radius);padding:20px;
+  margin-bottom:16px;box-shadow:var(--shadow-sm)
+}
+.result-section-title{
+  font-size:16px;font-weight:700;color:var(--brand-navy);margin-bottom:16px;
+  display:flex;align-items:center;gap:8px
+}
+.result-section-title::before{content:'';width:4px;height:18px;background:var(--brand-orange);border-radius:2px}
+.radar-wrap{width:100%;max-width:340px;margin:0 auto}
+
+/* Dimension bars */
+.dim-bars{margin-top:12px}
+.dim-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.dim-bar-label{font-size:13px;color:var(--text);font-weight:600;min-width:64px}
+.dim-bar-track{flex:1;height:10px;background:var(--border-light);border-radius:5px;overflow:hidden}
+.dim-bar-fill{height:100%;border-radius:5px;transition:width 1s ease}
+.dim-bar-fill.high{background:linear-gradient(90deg,var(--brand-blue),var(--success))}
+.dim-bar-fill.mid{background:linear-gradient(90deg,var(--brand-blue),var(--brand-orange-light))}
+.dim-bar-fill.low{background:linear-gradient(90deg,var(--brand-orange-light),var(--brand-orange))}
+.dim-bar-score{font-size:13px;font-weight:700;color:var(--text);min-width:36px;text-align:right}
+
+.weakness-item{margin-bottom:16px}
+.weakness-item:last-child{margin-bottom:0}
+.weakness-name{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.weakness-score{font-size:12px;background:rgba(239,68,68,.1);color:var(--error);padding:2px 10px;border-radius:10px;font-weight:600}
+.weakness-advice{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.benchmark{font-size:14px;color:var(--text-secondary);line-height:1.7}
+.benchmark strong{color:var(--brand-blue)}
+
+.cta-wrap{text-align:center;margin:12px 0 32px}
+.cta-wrap .btn-primary{padding:16px 48px;font-size:17px;background:linear-gradient(135deg,var(--brand-orange),var(--brand-orange-light));box-shadow:0 4px 16px rgba(237,125,49,.3)}
+.cta-wrap .btn-primary:active{background:var(--brand-orange)}
+
+/* ===== FORM ===== */
+.form-wrap{padding:32px 0}
+.form-title{font-size:20px;font-weight:700;color:var(--brand-navy);text-align:center;margin-bottom:8px}
+.form-subtitle{font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.form-label .required{color:var(--error);margin-left:2px}
+.form-input,.form-select{
+  width:100%;padding:12px 16px;font-size:15px;border:1.5px solid var(--border);
+  border-radius:var(--radius);background:var(--bg-card);color:var(--text);
+  font-family:var(--font);transition:border-color .2s;appearance:none;
+  -webkit-appearance:none;outline:none;min-height:48px
+}
+.form-input:focus,.form-select:focus{border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(91,155,213,.1)}
+.form-input.error,.form-select.error{border-color:var(--error)}
+.form-error{font-size:12px;color:var(--error);margin-top:4px;display:none}
+.form-error.show{display:block}
+.form-select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748B' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:40px
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit-wrap{text-align:center;margin-top:28px}
+.form-submit-wrap .btn{width:100%;max-width:300px}
+.form-success{text-align:center;padding:48px 20px;display:none}
+.form-success.show{display:block}
+.form-success-icon{
+  width:72px;height:72px;border-radius:50%;background:rgba(16,185,129,.1);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;font-size:36px;color:var(--success)
+}
+.form-success-title{font-size:20px;font-weight:700;color:var(--brand-navy);margin-bottom:8px}
+.form-success-sub{font-size:14px;color:var(--text-secondary);line-height:1.6}
+
+/* Footer */
+.footer{text-align:center;padding:32px 0;border-top:1px solid var(--border-light);margin-top:16px}
+.footer-brand{font-size:14px;font-weight:600;color:var(--brand-navy)}
+.footer-tagline{font-size:12px;color:var(--text-light);margin-top:4px}
+.footer-qr-hint{font-size:12px;color:var(--text-light);margin-top:12px}
+
+/* Desktop */
+@media(min-width:768px){
+  .header-inner{padding:.5rem 2rem}
+  .container{max-width:680px;padding:0}
+  .cover-title{font-size:34px}
+  .cover::before{width:500px;height:500px}
+  .cover-meta{gap:48px}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .result-grid .result-section:nth-child(1){grid-column:1/-1}
+  .form-row{grid-template-columns:1fr 1fr}
+}
+
+/* Tap highlight */
+.quiz-option,.quiz-dot,.btn{-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+</style>
+</head>
+<body>
+
+<!-- Site Header -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <img src="images/logo云端.png" alt="云端互联科技" width="40" height="40" loading="eager">
+      <span class="logo-text">成都云端互联科技有限公司</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html#home">首页</a></li>
+        <li><a href="index.html#asset-management">数据资产管理</a></li>
+        <li><a href="数据资产运营.html">数据资产运营</a></li>
+        <li><a href="index.html#asset-development">数据资产开发</a></li>
+        <li><a href="index.html#services">服务体系</a></li>
+        <li><a href="index.html#cases">客户案例</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#news" class="nav-dropdown-toggle">最新资讯</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="index.html#news-reference">行业参考</a></li>
+            <li><a href="index.html#news-policy">政策速递</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact">联系我们</a></li>
+        <li><a href="数据资产入表自测_v2.html" class="nav-cta">入表自测</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="container" id="app">
+
+  <!-- Step Indicator -->
+  <div class="step-indicator" id="stepIndicator">
+    <span class="step-dot active" data-step="1"></span><span class="step-line" data-line="1"></span>
+    <span class="step-dot" data-step="2"></span><span class="step-line" data-line="2"></span>
+    <span class="step-dot" data-step="3"></span><span class="step-line" data-line="3"></span>
+    <span class="step-dot" data-step="4"></span>
+  </div>
+  <div class="step-labels">
+    <span class="step-label active" data-label="1">测评答题</span>
+    <span class="step-label" data-label="2">查看结果</span>
+    <span class="step-label" data-label="3">预约专家</span>
+    <span class="step-label" data-label="4">获取方案</span>
+  </div>
+
+  <!-- Stage 1: Cover -->
+  <div class="stage active" id="stage-cover">
+    <div class="cover">
+      <div class="cover-badge">&#9679; 云端互联 · 数据资产入表自测工具</div>
+      <h1 class="cover-title">您的企业，是否具备<span>数据资产入表</span>条件？</h1>
+      <p class="cover-subtitle">18道专业测评，3分钟快速诊断。基于《企业数据资源相关会计处理暂行规定》六大维度评估体系。</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item"><span class="num">6</span><span class="label">大维度</span></div>
+        <div class="cover-meta-item"><span class="num">18</span><span class="label">道题目</span></div>
+        <div class="cover-meta-item"><span class="num">3</span><span class="label">分钟</span></div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">数据资源</span>
+        <span class="cover-tag">合规确权</span>
+        <span class="cover-tag">质量评估</span>
+        <span class="cover-tag">治理制度</span>
+        <span class="cover-tag">入表准备</span>
+        <span class="cover-tag">产品交易</span>
+      </div>
+      <button class="btn btn-primary" onclick="startQuiz()">开始测评</button>
+    </div>
+  </div>
+
+  <!-- Stage 2: Quiz -->
+  <div class="stage" id="stage-quiz">
+    <div class="quiz-progress-wrap">
+      <div class="quiz-progress-info">
+        <span class="quiz-progress-num">第 <span id="currentNum">1</span> / 18 题</span>
+        <span style="font-size:12px;color:var(--text-light)" id="dimensionLabel"></span>
+      </div>
+      <div class="progress-bar"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+    <div id="questionCard">
+      <div class="quiz-dimension" id="dimensionTag"></div>
+      <div class="quiz-question" id="questionText"></div>
+      <div class="quiz-options" id="optionsWrap"></div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn btn-outline" id="btnPrev" onclick="prevQuestion()">上一题</button>
+      <button class="btn btn-primary" id="btnNext" onclick="nextQuestion()">下一题</button>
+    </div>
+    <div class="quiz-dots" id="quizDots"></div>
+  </div>
+
+  <!-- Stage 3: Result -->
+  <div class="stage" id="stage-result">
+    <div class="result-wrap" id="resultContent"></div>
+    <div class="footer">
+      <div class="footer-brand">云端互联</div>
+      <div class="footer-tagline">数据要素运营服务商 · 让数据成为资产，让要素创造价值</div>
+      <div class="footer-qr-hint">关注公众号，获取更多数据资产化前沿洞察</div>
+    </div>
+  </div>
+
+  <!-- Stage 4: Form -->
+  <div class="stage" id="stage-form">
+    <div class="form-wrap">
+      <div class="form-title">预约专家 1对1 诊断</div>
+      <div class="form-subtitle">提交信息后，我们的数据资产专家将在1个工作日内与您联系</div>
+      <form id="leadForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label class="form-label">企业名称 <span class="required">*</span></label>
+          <input type="text" class="form-input" id="fCompany" placeholder="请输入企业全称" required>
+          <div class="form-error" id="errCompany">请输入企业名称</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">联系人姓名 <span class="required">*</span></label>
+            <input type="text" class="form-input" id="fName" placeholder="请输入您的姓名" required>
+            <div class="form-error" id="errName">请输入联系人姓名</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">手机号 <span class="required">*</span></label>
+            <input type="tel" class="form-input" id="fPhone" placeholder="请输入11位手机号" maxlength="11" required>
+            <div class="form-error" id="errPhone">请输入正确的11位手机号</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">所在城市 <span class="required">*</span></label>
+          <input type="text" class="form-input" id="fCity" placeholder="如：北京、上海、深圳" required>
+          <div class="form-error" id="errCity">请输入所在城市</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">所属行业 <span class="required">*</span></label>
+            <select class="form-select" id="fIndustry" required>
+              <option value="">请选择</option>
+              <option value="能源">能源</option>
+              <option value="制造">制造</option>
+              <option value="金融">金融</option>
+              <option value="农业">农业</option>
+              <option value="物流">物流</option>
+              <option value="城投">城投</option>
+              <option value="医疗">医疗</option>
+              <option value="电商">电商</option>
+              <option value="科技">科技</option>
+              <option value="其他">其他</option>
+            </select>
+            <div class="form-error" id="errIndustry">请选择所属行业</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">企业规模 <span class="required">*</span></label>
+            <select class="form-select" id="fScale" required>
+              <option value="">请选择</option>
+              <option value="50人以下">50人以下</option>
+              <option value="50-200人">50-200人</option>
+              <option value="200-500人">200-500人</option>
+              <option value="500-1000人">500-1000人</option>
+              <option value="1000人以上">1000人以上</option>
+            </select>
+            <div class="form-error" id="errScale">请选择企业规模</div>
+          </div>
+        </div>
+        <div class="form-submit-wrap">
+          <button type="submit" class="btn btn-primary">提交并获取诊断报告</button>
+        </div>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">&#10003;</div>
+        <div class="form-success-title">提交成功！</div>
+        <div class="form-success-sub">感谢您的提交，我们的数据资产专家将在1个工作日内与您联系，为您提供个性化入表诊断方案。</div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-brand">云端互联</div>
+      <div class="footer-tagline">数据要素运营服务商 · 让数据成为资产，让要素创造价值</div>
+      <div class="footer-qr-hint">关注公众号，获取更多数据资产化前沿洞察</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const DIMENSION_NAMES=['数据资源盘点与分类分级','数据合规与确权','数据质量评估','数据治理与制度','数据资产入表准备','数据产品化与交易'];
+const RADAR_LABELS=['数据资源','合规确权','质量评估','治理制度','入表准备','产品交易'];
+const QUESTIONS=[
+{id:1,dimension:0,text:'企业是否完成了数据资源盘点，并形成数据分级分类目录？',options:[{label:'A',text:'已完成盘点并持续更新',score:3},{label:'B',text:'初步梳理了部分数据资源',score:1},{label:'C',text:'尚未启动数据资源盘点',score:0}]},
+{id:2,dimension:0,text:'是否能够追溯数据的来源、流转路径和加工处理关系？',options:[{label:'A',text:'有自动化血缘追踪工具',score:3},{label:'B',text:'通过手工文档记录流转关系',score:1},{label:'C',text:'无法追溯数据来源和流转路径',score:0}]},
+{id:3,dimension:0,text:'是否已识别出可计量、可复用且预期能带来经济利益的数据资源？',options:[{label:'A',text:'已形成完整的数据资产清单',score:3},{label:'B',text:'已识别部分高价值数据资源',score:1},{label:'C',text:'尚未开展数据资产识别工作',score:0}]},
+{id:4,dimension:1,text:'数据的采集和使用是否具备合法授权基础？',options:[{label:'A',text:'全部数据来源均可提供合法性证明',score:3},{label:'B',text:'大部分数据来源可证明，少量存疑',score:1},{label:'C',text:'尚未系统梳理数据来源合法性',score:0}]},
+{id:5,dimension:1,text:'是否已厘清数据资源持有权、数据加工使用权、数据产品经营权？',options:[{label:'A',text:'已明确三权归属并在合同或制度中约定',score:3},{label:'B',text:'部分权利的归属已有初步界定',score:1},{label:'C',text:'尚未涉及数据权利分置',score:0}]},
+{id:6,dimension:1,text:'是否已有法律或合规团队对企业数据资产进行过合规性审查并出具意见？',options:[{label:'A',text:'已通过正式合规审查并出具意见书',score:3},{label:'B',text:'内部做过自查但未形成正式报告',score:1},{label:'C',text:'未进行过数据合规审查',score:0}]},
+{id:7,dimension:2,text:'是否建立了数据质量的量化指标体系（完整性/准确性/一致性/时效性/唯一性/规范性）？',options:[{label:'A',text:'已建立六维质量指标并持续监测',score:3},{label:'B',text:'有部分质量抽查机制但不系统化',score:1},{label:'C',text:'尚未建立数据质量度量体系',score:0}]},
+{id:8,dimension:2,text:'是否具备数据质量问题从发现到修复验证的管理闭环？',options:[{label:'A',text:'系统化闭环管理（发现→分析→修复→验证）',score:3},{label:'B',text:'问题靠人工处理，无系统性跟踪',score:1},{label:'C',text:'数据质量问题被动应对、无管理机制',score:0}]},
+{id:9,dimension:2,text:'是否制定了企业级数据标准，并对核心主数据实施了统一管理？',options:[{label:'A',text:'已制定企业级标准并落地执行',score:3},{label:'B',text:'已制定标准但尚未全面推行',score:1},{label:'C',text:'尚未制定数据标准',score:0}]},
+{id:10,dimension:3,text:'是否设立了正式的数据管理组织架构（数据管理委员会/CDO/数据管理岗）？',options:[{label:'A',text:'有明确的组织架构、岗位职责和考核机制',score:3},{label:'B',text:'有兼职人员负责数据相关工作',score:1},{label:'C',text:'目前无人专门负责数据管理',score:0}]},
+{id:11,dimension:3,text:'是否已发布数据管理办法、数据安全制度、数据生命周期管理规范等制度文件？',options:[{label:'A',text:'已正式发布并执行全套制度文件',score:3},{label:'B',text:'有制度草案但尚未正式发布',score:1},{label:'C',text:'尚未建立数据管理制度',score:0}]},
+{id:12,dimension:3,text:'是否对数据进行了安全定级，并按等级实施加密、脱敏、访问控制等措施？',options:[{label:'A',text:'已完成分级，并按等级实施差异管控',score:3},{label:'B',text:'实施了统一的安全管控但未分级',score:1},{label:'C',text:'尚未实施系统化的数据安全管控',score:0}]},
+{id:13,dimension:4,text:'是否能够清晰核算数据采集、治理、开发过程中投入的直接成本和间接成本？',options:[{label:'A',text:'可精确归集至具体数据资产项目',score:3},{label:'B',text:'可大致估算总投入但无法按资产拆分',score:1},{label:'C',text:'尚未进行成本核算',score:0}]},
+{id:14,dimension:4,text:'是否能合理预估数据资产的预期经济利益流入方式？',options:[{label:'A',text:'已建立收益测算模型并有量化预测',score:3},{label:'B',text:'有定性判断但缺乏量化测算',score:1},{label:'C',text:'尚未评估数据资产的预期收益',score:0}]},
+{id:15,dimension:4,text:'财务团队是否了解《企业数据资源相关会计处理暂行规定》，并能判断适用无形资产还是存货模式？',options:[{label:'A',text:'已深入研究，形成入表方案',score:3},{label:'B',text:'初步了解规定，尚未形成方案',score:1},{label:'C',text:'不了解该会计处理规定',score:0}]},
+{id:16,dimension:5,text:'是否已将原始数据资源开发为标准化的数据产品？',options:[{label:'A',text:'已有标准化数据产品并面向市场',score:3},{label:'B',text:'正在规划或开发数据产品',score:1},{label:'C',text:'尚未考虑数据产品化',score:0}]},
+{id:17,dimension:5,text:'是否已与数据交易所或数据交易平台有过接洽，了解挂牌交易流程？',options:[{label:'A',text:'已成为交易所会员或有产品上架',score:3},{label:'B',text:'初步了解过交易场所信息',score:1},{label:'C',text:'未接触过数据交易场所',score:0}]},
+{id:18,dimension:5,text:'是否已将数据资产作为增信手段或质押物进行融资授信探索？',options:[{label:'A',text:'已获得授信或在积极推进融资',score:3},{label:'B',text:'有相关规划但未启动',score:1},{label:'C',text:'尚未考虑数据资产融资',score:0}]}
+];
+const WEAKNESS_ADVICE=[
+'建议启动全量数据资源盘点，建立分级分类目录，形成可动态更新的数据资源图谱。',
+'建议引入数据合规律师团队，厘清三权归属并以法律文件固化，确保拟入表资产的合法合规基础。',
+'建议建立六维质量度量体系与自动化监测能力，推动数据质量从"被动应对"向"主动治理"转变。',
+'建议设立专职数据管理组织（CDO/数据管理委员会），发布数据管理办法，构建企业级数据治理制度框架。',
+'建议财务团队深入研究暂行规定，启动成本归集与收益测算工作，形成可落地执行的入表会计方案。',
+'建议识别高价值数据资源并启动产品化开发，积极对接数据交易所，探索数据交易与融资的创新路径。'
+];
+const LEVEL_CONFIG={
+L1:{min:42,max:54,label:'入表成熟型',cssClass:'badge-L1',desc:'您的企业在数据资产化方面基础扎实，具备启动入表的成熟条件。建议立即对接专业机构，尽快完成登记确权与资产入表。'},
+L2:{min:24,max:41,label:'入表准入门槛型',cssClass:'badge-L2',desc:'您的企业已具备一定基础，但在某些关键维度仍有提升空间。建议补齐短板后推进入表流程。'},
+L3:{min:12,max:23,label:'治理建设型',cssClass:'badge-L3',desc:'您的企业数据资产管理尚处于建设阶段。建议优先建立数据治理体系，为数据资产化打好基础。'},
+L4:{min:0,max:11,label:'启蒙阶段',cssClass:'badge-L4',desc:'数据资产化是数字经济时代企业的必修课。建议从基础的数据管理体系搭建开始，逐步探索数据资产化路径。'}
+};
+
+let currentQ=0,answers=new Array(18).fill(null),chartInstance=null;
+
+function updateSteps(n){
+  document.querySelectorAll('.step-dot').forEach(function(d,i){
+    d.classList.remove('active','done');
+    if(i<n)d.classList.add('done');
+    else if(i===n)d.classList.add('active');
+  });
+  document.querySelectorAll('.step-line').forEach(function(l,i){
+    l.classList.toggle('done',i<n);
+  });
+  document.querySelectorAll('.step-label').forEach(function(l,i){
+    l.classList.remove('active','done');
+    if(i<n)l.classList.add('done');
+    else if(i===n)l.classList.add('active');
+  });
+}
+
+function switchStage(stageId){
+  document.querySelectorAll('.stage').forEach(function(s){s.classList.remove('active')});
+  document.getElementById(stageId).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function startQuiz(){
+  currentQ=0;answers=new Array(18).fill(null);
+  switchStage('stage-quiz');updateSteps(0);renderQuestion();renderDots();
+}
+
+function renderQuestion(){
+  var q=QUESTIONS[currentQ];
+  document.getElementById('currentNum').textContent=currentQ+1;
+  document.getElementById('dimensionLabel').textContent=DIMENSION_NAMES[q.dimension];
+  document.getElementById('dimensionTag').textContent='维度'+(q.dimension+1)+'：'+DIMENSION_NAMES[q.dimension];
+  document.getElementById('questionText').textContent=q.text;
+  document.getElementById('progressFill').style.width=((currentQ+1)/18*100)+'%';
+  var wrap=document.getElementById('optionsWrap');wrap.innerHTML='';
+  q.options.forEach(function(opt,idx){
+    var div=document.createElement('div');
+    div.className='quiz-option'+(answers[currentQ]===idx?' selected':'');
+    div.innerHTML='<div class="quiz-option-radio"></div><div class="quiz-option-text"><span class="quiz-option-label">'+opt.label+'.</span>'+opt.text+'</div>';
+    div.addEventListener('click',function(){selectOption(idx)});
+    wrap.appendChild(div);
+  });
+  var btnPrev=document.getElementById('btnPrev'),btnNext=document.getElementById('btnNext');
+  btnPrev.style.display=currentQ===0?'none':'flex';
+  if(currentQ===17){btnNext.textContent='查看结果';btnNext.onclick=showResult}
+  else{btnNext.textContent='下一题';btnNext.onclick=nextQuestion}
+  renderDots();
+  var card=document.getElementById('questionCard');card.style.animation='none';card.offsetHeight;card.style.animation='fadeSlideIn .3s ease';
+}
+function selectOption(idx){answers[currentQ]=idx;document.querySelectorAll('.quiz-option').forEach(function(el,i){el.classList.toggle('selected',i===idx)});renderDots()}
+function nextQuestion(){if(currentQ<17){currentQ++;renderQuestion();window.scrollTo({top:0,behavior:'smooth'})}}
+function prevQuestion(){if(currentQ>0){currentQ--;renderQuestion();window.scrollTo({top:0,behavior:'smooth'})}}
+function goToQuestion(idx){currentQ=idx;renderQuestion();window.scrollTo({top:0,behavior:'smooth'})}
+function renderDots(){
+  var wrap=document.getElementById('quizDots'),html='';
+  for(var i=0;i<18;i++){
+    var cls='quiz-dot';
+    if(i===currentQ)cls+=' current';else if(answers[i]!==null)cls+=' answered';
+    html+='<button class="'+cls+'" onclick="goToQuestion('+i+')">'+(i+1)+'</button>';
+  }
+  wrap.innerHTML=html;
+}
+
+function getDimScoreClass(score){
+  if(score>=7)return'high';if(score>=4)return'mid';return'low'
+}
+
+function showResult(){
+  updateSteps(1);
+  var dimScores=[0,0,0,0,0,0],total=0;
+  for(var i=0;i<18;i++){
+    if(answers[i]!==null){
+      var s=QUESTIONS[i].options[answers[i]].score;
+      dimScores[QUESTIONS[i].dimension]+=s;total+=s;
+    }
+  }
+  var levelKey='L4';
+  for(var k in LEVEL_CONFIG){var c=LEVEL_CONFIG[k];if(total>=c.min&&total<=c.max){levelKey=k;break}}
+  var level=LEVEL_CONFIG[levelKey];
+  var dimWithIdx=dimScores.map(function(s,i){return{idx:i,score:s}});
+  dimWithIdx.sort(function(a,b){return a.score-b.score});
+  var weakest=dimWithIdx.slice(0,2);
+
+  var html='';
+  html+='<div class="result-hero"><div class="result-total">'+total+'</div><div class="result-total-sub">/ 54 分</div><div class="result-badge '+level.cssClass+'">'+level.label+'</div><div class="result-desc">'+level.desc+'</div></div>';
+  html+='<div class="result-grid">';
+  html+='<div class="result-section"><div class="result-section-title">六维度能力雷达图</div><div class="radar-wrap"><canvas id="radarChart" width="340" height="340"></canvas></div></div>';
+  html+='<div class="result-section"><div class="result-section-title">维度得分明细</div><div class="dim-bars">';
+  for(var j=0;j<6;j++){
+    var pct=Math.round(dimScores[j]/9*100),cls=getDimScoreClass(dimScores[j]);
+    html+='<div class="dim-bar-row"><span class="dim-bar-label">'+RADAR_LABELS[j]+'</span><div class="dim-bar-track"><div class="dim-bar-fill '+cls+'" style="width:'+pct+'%"></div></div><span class="dim-bar-score">'+dimScores[j]+'/9</span></div>';
+  }
+  html+='</div></div></div>';
+  html+='<div class="result-section"><div class="result-section-title">弱项诊断与专业建议</div>';
+  weakest.forEach(function(w){
+    html+='<div class="weakness-item"><div class="weakness-name">'+RADAR_LABELS[w.idx]+' <span class="weakness-score">'+w.score+' / 9 分</span></div><div class="weakness-advice">'+WEAKNESS_ADVICE[w.idx]+'</div></div>';
+  });
+  html+='</div>';
+  html+='<div class="result-section"><div class="result-section-title">行业对标</div><div class="benchmark">据行业调研，已完成数据资产入表的企业在该测评中平均得分 <strong>42 分以上</strong>，分布在 L1 区间。您的企业当前得分 <strong>'+total+' 分</strong>，处于 '+level.label+' 区间，建议对照行业标杆逐步提升。</div></div>';
+  html+='<div class="cta-wrap"><button class="btn btn-primary" onclick="goToForm()">预约专家 1对1 诊断</button></div>';
+
+  document.getElementById('resultContent').innerHTML=html;
+  switchStage('stage-result');
+  setTimeout(function(){renderRadar(dimScores)},200);
+}
+
+function renderRadar(dimScores){
+  var canvas=document.getElementById('radarChart');if(!canvas)return;
+  if(chartInstance)chartInstance.destroy();
+  var ctx=canvas.getContext('2d');
+  chartInstance=new Chart(ctx,{
+    type:'radar',
+    data:{
+      labels:RADAR_LABELS,
+      datasets:[{
+        label:'您的得分',data:dimScores,
+        backgroundColor:'rgba(91,155,213,.15)',borderColor:'#5B9BD5',borderWidth:2,
+        pointBackgroundColor:'#5B9BD5',pointBorderColor:'#fff',pointBorderWidth:2,pointRadius:5,pointHoverRadius:7
+      },{
+        label:'行业标杆(L1)',data:[7,7,7,7,7,7],
+        backgroundColor:'rgba(148,163,184,.05)',borderColor:'#CBD5E1',borderWidth:1.5,borderDash:[6,4],
+        pointBackgroundColor:'#CBD5E1',pointBorderColor:'#fff',pointBorderWidth:1,pointRadius:3,pointHoverRadius:5
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,animation:{duration:800,easing:'easeOutQuart'},
+      scales:{r:{beginAtZero:true,max:9,ticks:{stepSize:3,font:{size:11},backdropColor:'transparent'},pointLabels:{font:{size:12,weight:'600'},color:'#1E293B'},grid:{color:'#E2E8F0'},angleLines:{color:'#E2E8F0'}}},
+      plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:20,font:{size:12},color:'#64748B'}}}
+    }
+  });
+}
+
+function goToForm(){updateSteps(2);switchStage('stage-form')}
+
+function submitForm(e){
+  e.preventDefault();var valid=true;
+  var company=document.getElementById('fCompany').value.trim();
+  var name=document.getElementById('fName').value.trim();
+  var phone=document.getElementById('fPhone').value.trim();
+  var city=document.getElementById('fCity').value.trim();
+  var industry=document.getElementById('fIndustry').value;
+  var scale=document.getElementById('fScale').value;
+  document.querySelectorAll('.form-error').forEach(function(el){el.classList.remove('show')});
+  document.querySelectorAll('.form-input,.form-select').forEach(function(el){el.classList.remove('error')});
+  if(!company){showError('fCompany','errCompany');valid=false}
+  if(!name){showError('fName','errName');valid=false}
+  if(!phone||!/^1[3-9]\d{9}$/.test(phone)){showError('fPhone','errPhone');valid=false}
+  if(!city){showError('fCity','errCity');valid=false}
+  if(!industry){showError('fIndustry','errIndustry');valid=false}
+  if(!scale){showError('fScale','errScale');valid=false}
+  if(!valid)return;
+
+  var scoreMap=[3,1,0],dimScores=[0,0,0,0,0,0],totalScore=0;
+  for(var i=0;i<18;i++){
+    if(answers[i]!==null){var s=scoreMap[answers[i]];dimScores[Math.floor(i/3)]+=s;totalScore+=s}
+  }
+  var levelCfg=LEVEL_CONFIG.L4;
+  for(var k in LEVEL_CONFIG){var c=LEVEL_CONFIG[k];if(totalScore>=c.min&&totalScore<=c.max){levelCfg=c;break}}
+  var desp='【总分】'+totalScore+'分 / 54分\n【等级】'+levelCfg.label+'\n\n【六维度得分】\n';
+  for(var j=0;j<6;j++){desp+=RADAR_LABELS[j]+'：'+dimScores[j]+' / 9 分\n'}
+  desp+='\n【留资信息】\n企业名称：'+company+'\n姓名：'+name+'\n手机号：'+phone+'\n城市：'+city+'\n行业：'+industry+'\n规模：'+scale;
+
+  fetch('https://sctapi.ftqq.com/SCT368749Ta54rDvz2PhyqHbobGI8p7IRC.send',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({title:'【'+levelCfg.label+'】'+company+' · '+name,desp:desp})
+  }).catch(function(){});
+
+  document.getElementById('leadForm').style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+  updateSteps(3);
+}
+function showError(inputId,errId){document.getElementById(inputId).classList.add('error');document.getElementById(errId).classList.add('show')}
+document.addEventListener('DOMContentLoaded',function(){
+  const menuToggle=document.getElementById('menuToggle');
+  const mainNav=document.querySelector('.main-nav');
+  if(menuToggle&&mainNav){
+    menuToggle.addEventListener('click',function(e){e.stopPropagation();menuToggle.classList.toggle('open');mainNav.classList.toggle('open')});
+    document.addEventListener('click',function(e){if(mainNav.classList.contains('open')&&!mainNav.contains(e.target)&&e.target!==menuToggle){menuToggle.classList.remove('open');mainNav.classList.remove('open')}});
+    window.addEventListener('resize',function(){if(window.innerWidth>767){menuToggle.classList.remove('open');mainNav.classList.remove('open')}});
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle){toggle.addEventListener('click',function(e){if(window.innerWidth<=767){e.preventDefault();toggle.parentElement.classList.toggle('open')}})})
+  }
+});
+</script>
+</body>
+</html>

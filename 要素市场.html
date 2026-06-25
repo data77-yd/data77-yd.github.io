@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>要素市场 - 数据生产要素资源运营门户</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <a href="index.html"><img src="images/logo云端.png" alt="云端互联科技" class="logo-img"></a>
+      <span class="header-title">数据生产要素资源运营门户</span>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">首页</a>
+      <a href="要素市场.html" class="active">要素市场</a>
+      <a href="生产工具.html">生产工具</a>
+      <a href="数据详情.html">数据详情</a>
+    </nav>
+    <div class="header-actions">
+      <a href="管理后台登陆.html" class="btn-link">登录</a>
+      <a href="用户注册.html" class="btn-primary-sm">注册</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <!-- 搜索栏 -->
+    <div class="search-box" style="max-width:600px;margin-bottom:24px;">
+      <input type="text" placeholder="搜索数据资源...">
+      <button>搜索</button>
+    </div>
+
+    <!-- 筛选区 -->
+    <div class="filter-bar">
+      <div class="filter-row">
+        <span class="filter-label">数据类型</span>
+        <div class="filter-options" data-multi="false">
+          <span class="filter-option active">全部</span>
+          <span class="filter-option">结构化</span>
+          <span class="filter-option">半结构化</span>
+          <span class="filter-option">非结构化</span>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">应用领域</span>
+        <div class="filter-options" data-multi="false">
+          <span class="filter-option active">全部</span>
+          <span class="filter-option">三感社区</span>
+          <span class="filter-option">生态环保</span>
+          <span class="filter-option">产业经济</span>
+          <span class="filter-option">科研院所</span>
+          <span class="filter-option">城市交通</span>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">标签</span>
+        <div class="filter-options" data-multi="true">
+          <span class="filter-option">GPS</span>
+          <span class="filter-option">轨迹</span>
+          <span class="filter-option">车流量</span>
+          <span class="filter-option">水质</span>
+          <span class="filter-option">气象</span>
+          <span class="filter-option">遥感</span>
+          <span class="filter-option">客流</span>
+          <span class="filter-option">商圈</span>
+          <span class="filter-option">宏观经济</span>
+          <span class="filter-option">公共卫生</span>
+          <span class="filter-option">农业</span>
+          <span class="filter-option">地理信息</span>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">排序</span>
+        <div class="filter-options" data-multi="false">
+          <span class="filter-option active">最新</span>
+          <span class="filter-option">最热</span>
+          <span class="filter-option">价格从低到高</span>
+          <span class="filter-option">免费优先</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 商品网格 -->
+    <div class="flex flex-wrap" style="gap:20px;">
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#E8F4FD,#C8E6F5);display:flex;align-items:center;justify-content:center;font-size:48px;">📍</div>
+        <div class="product-info">
+          <h3>GPS 车辆轨迹数据</h3>
+          <p class="desc">全国重点城市货运车辆 GPS 行驶轨迹，覆盖 300+ 城市</p>
+          <div class="product-meta"><span class="tag">城市交通</span><span class="tag">结构化</span></div>
+          <div class="product-footer">
+            <span class="price">¥1,280</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">查看详情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#E0F5EC,#B8E6D0);display:flex;align-items:center;justify-content:center;font-size:48px;">🚗</div>
+        <div class="product-info">
+          <h3>城市道路车流量数据</h3>
+          <p class="desc">主要城市主干道交通流量统计，含早晚高峰分析</p>
+          <div class="product-meta"><span class="tag">城市交通</span><span class="tag">结构化</span></div>
+          <div class="product-footer">
+            <span class="price">¥960</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">查看详情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#E8F0FE,#D0DFFA);display:flex;align-items:center;justify-content:center;font-size:48px;">💧</div>
+        <div class="product-info">
+          <h3>水环境监测数据</h3>
+          <p class="desc">全国重点流域水质监测数据，20+ 指标</p>
+          <div class="product-meta"><span class="tag">生态环保</span><span class="tag">结构化</span></div>
+          <div class="product-footer">
+            <span class="price">¥680</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">查看详情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#FEF3E8,#FAD8C0);display:flex;align-items:center;justify-content:center;font-size:48px;">🏪</div>
+        <div class="product-info">
+          <h3>商圈客流热力数据</h3>
+          <p class="desc">全国 500+ 商圈实时客流热力分布</p>
+          <div class="product-meta"><span class="tag">产业经济</span><span class="tag">半结构化</span></div>
+          <div class="product-footer">
+            <span class="price">¥2,400</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">查看详情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#FFF8E8,#FFE8B8);display:flex;align-items:center;justify-content:center;font-size:48px;">🌤️</div>
+        <div class="product-info">
+          <h3>全国气象观测数据</h3>
+          <p class="desc">全国基准气象站逐日观测数据</p>
+          <div class="product-meta"><span class="tag tag-accent">限时免费</span></div>
+          <div class="product-footer">
+            <span style="color:#00D4AA;font-size:18px;font-weight:700;">免费</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">立即获取</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#F0E8FE,#D8C8F8);display:flex;align-items:center;justify-content:center;font-size:48px;">🏥</div>
+        <div class="product-info">
+          <h3>公共卫生统计数据</h3>
+          <p class="desc">全国医疗卫生机构运营数据</p>
+          <div class="product-meta"><span class="tag">科研院所</span><span class="tag">结构化</span></div>
+          <div class="product-footer">
+            <span class="price">¥1,560</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">查看详情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#E8F8F0,#C0ECD8);display:flex;align-items:center;justify-content:center;font-size:48px;">🌾</div>
+        <div class="product-info">
+          <h3>农业遥感监测数据</h3>
+          <p class="desc">基于卫星遥感的农作物种植面积监测</p>
+          <div class="product-meta"><span class="tag">产业经济</span><span class="tag">非结构化</span></div>
+          <div class="product-footer">
+            <span class="price">¥3,200</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">查看详情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card product-card" style="flex:1;min-width:260px;">
+        <div class="card-img" style="background:linear-gradient(135deg,#F8E8FF,#E8C8FF);display:flex;align-items:center;justify-content:center;font-size:48px;">🗺️</div>
+        <div class="product-info">
+          <h3>行政区划地理数据</h3>
+          <p class="desc">全国省/市/县三级行政区划矢量数据</p>
+          <div class="product-meta"><span class="tag tag-accent">限时免费</span></div>
+          <div class="product-footer">
+            <span style="color:#00D4AA;font-size:18px;font-weight:700;">免费</span>
+            <a href="数据详情.html" class="btn btn-primary btn-sm">立即获取</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分页 -->
+    <div class="pagination">
+      <span class="active">1</span>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">...</a>
+      <a href="#">8</a>
+    </div>
+
+    <!-- 定制引导 -->
+    <div class="card" style="margin-top:48px;background:linear-gradient(135deg,#F8FAFD,#E8F4FD);">
+      <div class="card-body" style="padding:40px;">
+        <div style="display:flex;align-items:flex-start;gap:40px;">
+          <div style="flex:1;">
+            <h3 style="font-size:20px;font-weight:700;color:#0A2E5A;margin-bottom:8px;">找不到需要的数据？</h3>
+            <p style="color:#6B7B8D;margin-bottom:24px;">提交您的需求，我们为您量身定制数据解决方案</p>
+            <form data-validate>
+              <div class="form-group">
+                <label class="form-label">需求类型</label>
+                <div class="flex" style="gap:10px;">
+                  <button type="button" class="btn btn-outline btn-sm filter-option active">数据集定制</button>
+                  <button type="button" class="btn btn-outline btn-sm filter-option">API 开发</button>
+                  <button type="button" class="btn btn-outline btn-sm filter-option">数据治理</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">需求描述</label>
+                <textarea class="form-textarea" placeholder="请描述您需要的数据类型、用途和预期质量要求" data-required></textarea>
+                <span class="form-error-msg"></span>
+              </div>
+              <div class="flex" style="gap:20px;">
+                <div class="form-group" style="flex:1;">
+                  <label class="form-label">联系人</label>
+                  <input type="text" class="form-input" placeholder="您的姓名" data-required>
+                  <span class="form-error-msg"></span>
+                </div>
+                <div class="form-group" style="flex:1;">
+                  <label class="form-label">联系方式</label>
+                  <input type="text" class="form-input" placeholder="手机号或邮箱" data-required>
+                  <span class="form-error-msg"></span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-accent">提交需求</button>
+            </form>
+          </div>
+          <div style="width:260px;text-align:center;padding:30px 0;">
+            <div style="font-size:48px;margin-bottom:12px;">📞</div>
+            <p style="font-weight:700;color:#0A2E5A;font-size:18px;">400-8808-8808</p>
+            <p style="font-size:13px;color:#6B7B8D;">客服热线 · 工作日 9:00-18:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="images/logo云端.png" alt="云端互联科技" class="logo-img">
+        <h4>成都云端互联科技有限公司</h4>
+        <p>Chengdu CloudConnect Technology Co., Ltd.</p>
+      </div>
+      <div class="footer-col">
+        <h4>产品与服务</h4>
+        <a href="要素市场.html">要素市场</a>
+        <a href="生产工具.html">生产工具</a>
+        <a href="#">数据治理</a>
+        <a href="#">AI 能力</a>
+      </div>
+      <div class="footer-col">
+        <h4>快捷入口</h4>
+        <a href="管理后台登陆.html">管理后台</a>
+        <a href="我的工作台.html">我的工作台</a>
+        <a href="用户注册.html">用户注册</a>
+        <a href="#">API 文档</a>
+      </div>
+      <div class="footer-col">
+        <h4>帮助中心</h4>
+        <a href="#">新手指南</a>
+        <a href="#">常见问题</a>
+        <a href="#">联系我们</a>
+        <a href="#">意见反馈</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="#">公司介绍</a>
+        <a href="#">新闻动态</a>
+        <a href="#">加入我们</a>
+        <a href="#">隐私政策</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 成都云端互联科技有限公司 Chengdu CloudConnect Technology Co., Ltd. 保留所有权利
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
