@@ -166,12 +166,15 @@ ul,ol{list-style:none}
 
 /* ========== SERVICE CARDS ========== */
 .service-matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.service-card{background:#fff;padding:28px 20px;border-radius:12px;border:1px solid #eef0f4;text-align:center;transition:all .25s;box-shadow:0 2px 12px rgba(0,0,0,.03)}
+.service-card{background:#fff;padding:28px 20px;border-radius:12px;border:1px solid #eef0f4;text-align:center;transition:all .25s;box-shadow:0 2px 12px rgba(0,0,0,.03);display:flex;flex-direction:column}
 .service-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:rgba(91,155,213,.2)}
 .service-card-icon{margin-bottom:12px;display:flex;justify-content:center}
 .service-card-tag{font-size:10px;font-weight:700;color:#ED7D31;background:rgba(237,125,49,.08);padding:2px 10px;border-radius:10px;display:inline-block;margin-bottom:8px}
 .service-card h4{font-size:15px;font-weight:700;color:#44546A;margin-bottom:6px}
-.service-card p{font-size:12px;color:#888}
+.service-card p{font-size:13px;color:#667;line-height:1.65;text-align:left;margin-bottom:16px}
+.service-card-meta{border-top:1px solid #eef0f4;padding-top:14px;margin-top:auto;display:flex;flex-direction:column;gap:6px}
+.meta-item{font-size:11px;color:#999;display:flex;align-items:flex-start;gap:4px;text-align:left;line-height:1.5}
+.meta-item strong{color:#44546A;white-space:nowrap}
 
 /* ========== CASE ========== */
 .case-detail{background:#fff;padding:32px;border-radius:12px;border:1px solid #eef0f4;box-shadow:0 2px 16px rgba(0,0,0,.03)}
@@ -209,20 +212,59 @@ ul,ol{list-style:none}
 .news-link{font-size:13px;color:#5B9BD5;font-weight:600}
 
 /* ========== CONTACT / ABOUT ========== */
-.about-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
-.about-item{background:#fff;padding:16px 20px;border-radius:8px;text-align:center;border:1px solid #eef0f4}
-.about-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-.about-value{font-size:15px;font-weight:700;color:#44546A}
-.about-desc{font-size:14px;color:#666;line-height:1.8;margin-bottom:24px;max-width:720px}
-.exchange-logos{display:flex;gap:12px;flex-wrap:wrap}
-.exchange-item{font-size:12px;font-weight:600;color:#5B9BD5;padding:6px 16px;background:rgba(91,155,213,.08);border-radius:20px}
+/* 三支柱卡片 */
+.about-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px}
+.pillar-card{background:#fff;padding:28px 24px;border-radius:16px;text-align:center;border:1px solid #eef0f4;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#5B9BD5,#ED7D31);opacity:0;transition:opacity .3s}
+.pillar-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.pillar-card:hover::before{opacity:1}
+.pillar-icon{margin-bottom:12px;display:flex;justify-content:center}
+.pillar-label{font-size:11px;color:#999;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.pillar-value{font-size:18px;font-weight:700;color:#1a2332;margin-bottom:6px;line-height:1.4}
+@media (min-width:768px){.pillar-value{white-space:nowrap}}
+.pillar-desc{font-size:13px;color:#888;line-height:1.5}
+/* 照片+简介双栏 */
+.about-with-image{display:grid;grid-template-columns:1.15fr 1.85fr;gap:48px;align-items:start;margin-bottom:36px}
+.about-image-frame{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.about-image-frame::after{content:'';position:absolute;inset:0;border:3px solid transparent;border-radius:12px;background:linear-gradient(135deg,#5B9BD5,#ED7D31) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.about-image-frame img{width:100%;height:auto;display:block;transition:transform .4s}
+.about-image-frame:hover img{transform:scale(1.03)}
+.about-text{font-size:15px;color:#555;line-height:1.85}
+.about-intro{margin-bottom:24px}
+.about-intro strong{color:#1a2332;font-weight:700}
+.about-tags-section{margin-bottom:16px}
+.about-tags-label{font-size:12px;font-weight:700;color:#5B9BD5;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.about-tags{display:flex;gap:8px;flex-wrap:wrap}
+.about-tags span{font-size:13px;font-weight:600;color:#5B9BD5;padding:5px 14px;background:rgba(91,155,213,.07);border-radius:20px;border:1px solid rgba(91,155,213,.15)}
+.about-tags span.tag-industry{color:#ED7D31;background:rgba(237,125,49,.06);border-color:rgba(237,125,49,.15)}
+/* 数据交易所 */
+.about-exchange-section{margin-bottom:36px;text-align:center}
+.exchange-title{font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.exchange-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.exchange-badge{background:#fff;padding:10px 20px;border-radius:10px;border:1px solid #eef0f4;display:flex;align-items:center;justify-content:center;transition:border-color .3s,box-shadow .3s;height:60px}
+.exchange-badge:hover{border-color:#5B9BD5;box-shadow:0 4px 16px rgba(91,155,213,.1)}
+.exchange-badge img{max-height:36px;max-width:150px;width:auto;height:auto;object-fit:contain}
+@media(max-width:767px){
+  .about-pillars{grid-template-columns:1fr;gap:12px}
+  .about-with-image{grid-template-columns:1fr;gap:32px}
+  .about-image-frame{max-width:400px;margin:0 auto}
+  .exchange-badges{gap:8px}
+  .exchange-badge{height:48px;padding:8px 14px}
+  .exchange-badge img{max-height:28px}
+}
 
-.team-card{display:flex;gap:24px;align-items:flex-start;background:#fff;padding:24px;border-radius:12px;border:1px solid #eef0f4;max-width:600px}
-.team-photo img{width:100px;height:100px;border-radius:50%;object-fit:cover}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.team-card{display:flex;flex-direction:column;align-items:center;gap:16px;background:#fff;padding:24px;border-radius:12px;border:1px solid #eef0f4;text-align:center}
+.team-photo{width:100%;text-align:center}
+.team-photo img{display:block;margin:0 auto;width:180px;height:180px;border-radius:12px;object-fit:contain;background:#f5f6f8}
+.team-photo-placeholder{width:120px;height:120px;border-radius:12px;background:#dde2eb;color:#8899aa;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700;margin:0 auto}
+.team-info{width:100%}
+.team-card-placeholder{display:flex;align-items:center;justify-content:center;background:#fff;padding:20px;border-radius:12px;border:2px dashed #dde2eb;min-height:170px;color:#aaa;font-size:14px}
 .team-info h4{font-size:18px;font-weight:700;color:#1a2332;margin-bottom:2px}
 .team-title{font-size:13px;color:#ED7D31;margin-bottom:12px;font-weight:600}
 .team-info ul li{font-size:13px;color:#555;line-height:2.2;position:relative;padding-left:14px}
 .team-info ul li::before{content:"•";color:#5B9BD5;position:absolute;left:0}
+.team-info p{font-size:13px;color:#555;line-height:2.2}
 
 .contact-cta-block{text-align:center;margin-top:48px;padding:48px 24px;background:linear-gradient(135deg,rgba(91,155,213,.04),rgba(237,125,49,.04));border-radius:16px}
 .contact-cta-block h3{font-size:24px;font-weight:800;color:#1a2332;margin-bottom:8px}
@@ -284,8 +326,11 @@ ul,ol{list-style:none}
   .case-highlight-banner{flex-direction:column;align-items:center}
   .footer-grid{grid-template-columns:1fr;gap:24px}
   .contact-methods{flex-direction:column;align-items:center}
+  .team-grid{grid-template-columns:1fr}
   .team-card{flex-direction:column;align-items:center;text-align:center}
-  .about-highlights{grid-template-columns:1fr}
+  .team-photo{width:100px}
+  .team-photo img{width:150px;height:150px}
+  .about-pillars{grid-template-columns:1fr}
 }
 
 @media(max-width:480px){

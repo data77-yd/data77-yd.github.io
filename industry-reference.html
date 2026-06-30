@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="云端互联 - 行业参考，每日案例简报，洞察数据资产前沿实践">
+<title>行业参考 | 云端互联科技</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
+<style>
+/* industry-reference 专属样式 */
+.ir-hero{background:linear-gradient(135deg,#f0f6fb 0%,#fdf5ef 100%);padding:100px 0 60px;text-align:center}
+.ir-hero .section-num{display:inline-block;font-size:13px;font-weight:700;color:#5B9BD5;background:rgba(91,155,213,.1);padding:4px 14px;border-radius:20px;margin-bottom:16px;letter-spacing:1px}
+.ir-hero h1{font-size:36px;font-weight:800;color:#1E293B;margin:0 0 12px;letter-spacing:-.5px}
+.ir-hero .hero-sub{font-size:17px;color:#64748B;max-width:600px;margin:0 auto;line-height:1.7}
+
+.ir-main{padding:60px 0}
+.ir-main .section-header{margin-bottom:40px;text-align:center}
+.ir-main .section-header h2{font-size:28px;font-weight:800;color:#1E293B}
+
+.ir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ir-card{background:#fff;border-radius:14px;border:1px solid #eef0f4;padding:28px 24px;transition:all .25s;box-shadow:0 2px 12px rgba(0,0,0,.03);display:flex;flex-direction:column;gap:14px}
+.ir-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:rgba(91,155,213,.2)}
+.ir-card-date{font-size:11px;font-weight:600;color:#94A3B8;letter-spacing:.5px}
+.ir-card-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;width:fit-content}
+.ir-card-tag.case{color:#5B9BD5;background:rgba(91,155,213,.08)}
+.ir-card-tag.policy{color:#ED7D31;background:rgba(237,125,49,.08)}
+.ir-card-tag.tech{color:#10B981;background:rgba(16,185,129,.08)}
+.ir-card h4{font-size:16px;font-weight:700;color:#1E293B;line-height:1.5;margin:0}
+.ir-card p{font-size:13px;color:#64748B;line-height:1.7;margin:0;flex:1}
+.ir-card-placeholder{flex:1;display:flex;align-items:center;justify-content:center;min-height:60px;background:#F8FAFC;border-radius:8px;border:1px dashed #E2E8F0}
+.ir-card-placeholder span{font-size:12px;color:#CBD5E1}
+
+/* 分类 section */
+.ir-category{padding-bottom:60px}
+.ir-cat-header{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.ir-cat-pill{display:inline-block;font-size:13px;font-weight:700;padding:5px 16px;border-radius:18px;color:#fff}
+.ir-cat-pill.asset{background:linear-gradient(135deg,#5B9BD5,#4A86C8)}
+.ir-cat-pill.trade{background:linear-gradient(135deg,#ED7D31,#D4681E)}
+.ir-cat-pill.scene{background:linear-gradient(135deg,#10B981,#059669)}
+.ir-cat-title{font-size:22px;font-weight:800;color:#1E293B}
+
+.ir-card{margin-bottom:0}
+.ir-card-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ir-card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ir-card-tag.small{font-size:10px;padding:2px 8px;border-radius:8px}
+.ir-card-tag.asset{color:#5B9BD5;background:rgba(91,155,213,.08)}
+.ir-card-tag.trade{color:#ED7D31;background:rgba(237,125,49,.08)}
+.ir-card-tag.scene{color:#10B981;background:rgba(16,185,129,.08)}
+.ir-btn-detail{font-size:11px;font-weight:600;color:#5B9BD5;background:transparent;border:1px solid rgba(91,155,213,.25);border-radius:7px;padding:5px 14px;cursor:pointer;transition:all .2s;text-decoration:none;white-space:nowrap;display:inline-block}
+.ir-btn-detail:hover{background:rgba(91,155,213,.08);border-color:#5B9BD5}
+.ir-card .ir-card-date{margin:0}
+
+@media(max-width:900px){
+  .ir-grid{grid-template-columns:repeat(2,1fr)}
+  .ir-hero h1{font-size:28px}
+}
+@media(max-width:600px){
+  .ir-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <img src="images/logo.png" alt="云端互联科技" width="40" height="40" loading="eager">
+      <span class="logo-text">云端互联</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="index.html#asset-management">数据资产管理</a></li>
+        <li><a href="operations.html">数据资产运营</a></li>
+        <li><a href="data-asset-dev.html">数据资产开发</a></li>
+        <li><a href="services.html">服务体系</a></li>
+        <li><a href="index.html#cases">客户案例</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#news" class="nav-dropdown-toggle">最新资讯</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="industry-reference.html" class="active" style="color:#5B9BD5;background:rgba(91,155,213,.08);">行业参考</a></li>
+            <li><a href="index.html#news-policy">政策速递</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact">联系我们</a></li>
+        <li><a href="partner.html">招募合伙人</a></li>
+        <li><a href="self-test.html" class="nav-cta">入表自测</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ========== Hero ========== -->
+<section class="ir-hero">
+  <div class="container">
+    <span class="section-num">最新资讯</span>
+    <h1>行业参考</h1>
+    <p class="hero-sub">每日案例简报，洞察数据资产前沿实践。聚焦公共数据与企业数据资产化、交易挂牌、用数场景三大维度。</p>
+  </div>
+</section>
+
+<!-- ========== 分类一：资产化 ========== -->
+<section class="ir-category" id="cat-asset">
+  <div class="container">
+    <div class="ir-cat-header">
+      <span class="ir-cat-pill asset">资产化</span>
+      <span class="ir-cat-title">入表 / 融资</span>
+    </div>
+    <div class="ir-grid">
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.28</span>
+            <span class="ir-card-tag asset small">资产化</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>福州高新区"双证"质押，科创企业获授信800万元</h4>
+        <p>福州高新区联合福建海峡银行，为腾信数科办理全省首单"数据产权证书+数据知识产权证书"双证联合质押，授信800万元，打通数据资产确权到质押全链条。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.23</span>
+            <span class="ir-card-tag asset small">资产化</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>淮北首单数据资产质押融资400万元落地</h4>
+        <p>淮北产投集团以"供热计量传输数据集"获安徽省数据交易所产权登记，成功获得农商银行400万质押授信，为水务、燃气等国企提供可复制范本。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.21</span>
+            <span class="ir-card-tag asset small">资产化</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>武汉经开区三家企业数据资产入表实战</h4>
+        <p>东风研发（车联网数据，年效益2000万+）、中交武汉智行（混凝土配比数据入表224万）、精隧科技（全国首单地铁隧道数据入表211万）。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.13</span>
+            <span class="ir-card-tag asset small">资产化</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>杭数所协同宁波机场实现浙江首单航空数据资产化</h4>
+        <p>宁波机场航站楼运营数据经杭数所全链路服务完成资产化，从"沉睡资源"变为"战略资产"。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.09</span>
+            <span class="ir-card-tag asset small">资产化</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>扬州数据集团数据资产ABS获深交所批复，规模4.76亿元</h4>
+        <p>全国首单数据集团全链路主导发行的数据资产ABS，首创"先资产后证券化"架构，所有数字资产已在江苏省数据交易所完成挂牌备案。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.09</span>
+            <span class="ir-card-tag asset small">资产化</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>烟台融资担保集团完成首笔数据资产入表</h4>
+        <p>以"烟台融担普惠金融数据集"完成登记确权与入表，取得山东数据交易有限公司数据资产登记证书。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 分类二：交易 ========== -->
+<section class="ir-category" id="cat-trade">
+  <div class="container">
+    <div class="ir-cat-header">
+      <span class="ir-cat-pill trade">交易</span>
+      <span class="ir-cat-title">挂牌 / 成交</span>
+    </div>
+    <div class="ir-grid">
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.26</span>
+            <span class="ir-card-tag trade small">交易</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>宁波水利公共数据授权运营首笔交易落地</h4>
+        <p>水利内涝监测数据服务交易，保险公司采购用于灾前预警、灾中救援、灾后定损；同时保险自建500套监测设备数据反哺水利防汛，实现数据双向循环。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.18</span>
+            <span class="ir-card-tag trade small">交易</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>全国首单水土保持公共数据产品交易在皖落地</h4>
+        <p>安徽省5家单位购买"水土保持规划设计数据要素集"，由安徽省数据交易所颁发交易凭证，购买方前期数据准备时间缩短90%以上。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.10</span>
+            <span class="ir-card-tag trade small">交易</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>内蒙古数据交易中心低空经济首单：AI模型30万元出让</h4>
+        <p>内蒙古天疆防务"无人值守实时空间信息感知模型"通过数据交易中心出让，打通科技成果从研发到应用最后一公里。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.03</span>
+            <span class="ir-card-tag trade small">交易</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>广东省时空数据产品交易签约：测绘地理数据破冰</h4>
+        <p>广东省国土资源测绘院首个完成产权登记并实现场内闭环交易的数据产品，为公共数据进入要素市场提供实践样本。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 分类三：用数场景 ========== -->
+<section class="ir-category" id="cat-scene">
+  <div class="container">
+    <div class="ir-cat-header">
+      <span class="ir-cat-pill scene">用数场景</span>
+      <span class="ir-cat-title">行业变现</span>
+    </div>
+    <div class="ir-grid">
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.26</span>
+            <span class="ir-card-tag scene small">用数场景</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>宁波水利数据"双向循环"：保险+防汛双赢</h4>
+        <p>政府公共数据赋能企业保险业务，企业自建监测数据反哺政府防汛治理，实现数据双向赋能、互利共赢的闭环生态。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.09</span>
+            <span class="ir-card-tag scene small">用数场景</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>国家数据局："个体益贷"公共数据赋能个体工商户融资</h4>
+        <p>青岛"青融通"平台整合工商、税务、司法等公共数据，联合建模为个体工商户提供差异化融资服务。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.05</span>
+            <span class="ir-card-tag scene small">用数场景</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>上海公共数据"解冻"：企业带着算法拎包入住</h4>
+        <p>上海超1万条公共数据目录开放，企业进入数据创新实验室直接调用委办局数据。某碳税评估公司接入绿容局数据后构建废弃物全流程追溯，仅上海潜在年经济价值过亿。</p>
+      </div>
+
+      <div class="ir-card" data-animate>
+        <div class="ir-card-header">
+          <div class="ir-card-meta">
+            <span class="ir-card-date">2026.06.03</span>
+            <span class="ir-card-tag scene small">用数场景</span>
+          </div>
+          <a class="ir-btn-detail">查看详情</a>
+        </div>
+        <h4>长春交通信号数据赋能城市治理</h4>
+        <p>长春数产公司以交通信号灯数据为试点，面向车企、保险及导航平台构建数据流通安全应用场景。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="" width="40" height="40" loading="lazy">
+        <div>
+          <span class="footer-company">云端互联</span>
+          <p class="footer-tagline">数据要素运营服务商</p>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>快速导航</h4>
+        <a href="index.html">首页</a>
+        <a href="index.html#asset-management">数据资产管理</a>
+        <a href="operations.html">数据资产运营</a>
+        <a href="data-asset-dev.html">数据资产开发</a>
+        <a href="services.html">服务体系</a>
+        <a href="index.html#cases">客户案例</a>
+        <a href="index.html#news">最新资讯</a>
+        <a href="index.html#contact">联系我们</a>
+        <a href="partner.html">招募合伙人</a>
+      </div>
+      <div class="footer-contact-col">
+        <h4>联系我们</h4>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4.5A1.5 1.5 0 013.5 3h9A1.5 1.5 0 0114 4.5v7a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 11.5v-7z" stroke="currentColor" stroke-width="1.2"/><path d="M2 4.5L8 9l6-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>contact@cloudlink.com</span></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 2h6l3 7.5L8 14l-6-4.5 3-7.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="8" cy="9" r="2.5" stroke="currentColor" stroke-width="1.2"/></svg><span>028-8525 8888</span></div>
+      </div>
+      <div class="footer-badges-col">
+        <h4>交易所会员</h4>
+        <div class="footer-badges">
+          <span class="footer-badge">上海数据交易所</span>
+          <span class="footer-badge">杭州数据交易所</span>
+          <span class="footer-badge">北京数据交易所</span>
+          <span class="footer-badge">西部数据交易所</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 云端互联. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

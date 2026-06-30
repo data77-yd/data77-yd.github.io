@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="云端互联 - 数据资产开发，从原始数据到数据资产，全链路数据价值激活">
+<title>数据资产开发 | 云端互联科技</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ============================================================
+   数据资产开发 - 盟拓风格重设计
+   主色调：深蓝 #0d2b50 / #1a3c6b
+   设计语言：企业B2B、信息架构图、直角/小圆角
+   ============================================================ */
+
+:root {
+  --dv-navy: #0d2b50;
+  --dv-blue: #1a3c6b;
+  --dv-blue-mid: #2a5298;
+  --dv-white: #ffffff;
+  --dv-text: #333333;
+  --dv-gray: #6b7280;
+  --dv-border: #e8ecf1;
+  --dv-bg: #f7f8fa;
+  /* capability colors */
+  --cap-blue: #4A86EB;
+  --cap-cyan: #3CBBB1;
+  --cap-purple: #6B5B95;
+  --cap-orange: #ED7D31;
+  --cap-green: #43A047;
+  --cap-indigo: #3F51B5;
+}
+
+/* ========== HERO ========== */
+.dv-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background: var(--dv-navy);
+  padding: 140px 0 100px;
+  overflow: hidden;
+}
+/* dot grid pattern */
+.dv-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 1;
+}
+/* subtle gradient overlay */
+.dv-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(42,82,152,.35) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.dv-hero .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.dv-hero-left { flex: 1; max-width: 560px; }
+.dv-hero-badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+  background: rgba(255,255,255,.1);
+  padding: 6px 22px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  letter-spacing: 1.5px;
+}
+.dv-hero-title {
+  font-size: clamp(30px, 4.5vw, 42px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0 0 16px;
+}
+.dv-hero-subtitle {
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: rgba(255,255,255,.8);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+.dv-hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-dv-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--dv-blue-mid);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all .3s;
+  box-shadow: 0 4px 18px rgba(42,82,152,.4);
+}
+.btn-dv-primary:hover { background: #3b6ec4; transform: translateY(-2px); }
+.btn-dv-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,.4);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all .3s;
+}
+.btn-dv-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+/* Hero right - platform preview */
+.dv-hero-right {
+  flex: 0 0 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== SECTION COMMONS ========== */
+.dv-section { padding: 100px 0; }
+.dv-section .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.dv-section-alt { background: var(--dv-bg); }
+
+.dv-section-header { text-align: center; margin-bottom: 56px; }
+.dv-section-tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dv-blue-mid);
+  background: rgba(42,82,152,.08);
+  padding: 5px 18px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+.dv-section-header h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--dv-navy);
+  margin-bottom: 12px;
+}
+.dv-section-header .dv-section-desc {
+  font-size: 14px;
+  color: var(--dv-gray);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ========== VALUE STRIP (4 value cards) ========== */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.value-card {
+  background: #fff;
+  border: 1px solid var(--dv-border);
+  border-radius: 4px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all .3s;
+}
+.value-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  border-color: var(--dv-blue-mid);
+}
+.value-icon {
+  width: 56px; height: 56px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: rgba(42,82,152,.06);
+}
+.value-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dv-navy);
+  margin-bottom: 6px;
+}
+.value-card p {
+  font-size: 13px;
+  color: var(--dv-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========== CAPABILITY GRID (2 x 3) ========== */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.cap-card {
+  background: #fff;
+  border: 1px solid var(--dv-border);
+  border-radius: 4px;
+  padding: 32px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.cap-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px 0 0 0;
+}
+.cap-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.cap-card-icon {
+  width: 48px; height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.cap-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dv-navy);
+  margin: 0 0 8px;
+}
+.cap-card-desc {
+  font-size: 14px;
+  color: var(--dv-gray);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.cap-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.cap-card-tags span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+.cap-card-more {
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap .2s;
+}
+.cap-card-more:hover { gap: 8px; }
+
+/* Color variants */
+.cap--blue .cap-card-icon { background: rgba(74,134,235,.1); }
+.cap--blue .cap-card-tags span { background: var(--cap-blue); }
+.cap--blue .cap-card-more { color: var(--cap-blue); }
+.cap--blue::before { background: var(--cap-blue); }
+
+.cap--cyan .cap-card-icon { background: rgba(60,187,177,.1); }
+.cap--cyan .cap-card-tags span { background: var(--cap-cyan); }
+.cap--cyan .cap-card-more { color: var(--cap-cyan); }
+.cap--cyan::before { background: var(--cap-cyan); }
+
+.cap--purple .cap-card-icon { background: rgba(107,91,149,.1); }
+.cap--purple .cap-card-tags span { background: var(--cap-purple); }
+.cap--purple .cap-card-more { color: var(--cap-purple); }
+.cap--purple::before { background: var(--cap-purple); }
+
+.cap--orange .cap-card-icon { background: rgba(237,125,49,.1); }
+.cap--orange .cap-card-tags span { background: var(--cap-orange); }
+.cap--orange .cap-card-more { color: var(--cap-orange); }
+.cap--orange::before { background: var(--cap-orange); }
+
+.cap--green .cap-card-icon { background: rgba(67,160,71,.1); }
+.cap--green .cap-card-tags span { background: var(--cap-green); }
+.cap--green .cap-card-more { color: var(--cap-green); }
+.cap--green::before { background: var(--cap-green); }
+
+.cap--indigo .cap-card-icon { background: rgba(63,81,181,.1); }
+.cap--indigo .cap-card-tags span { background: var(--cap-indigo); }
+.cap--indigo .cap-card-more { color: var(--cap-indigo); }
+.cap--indigo::before { background: var(--cap-indigo); }
+
+/* ========== PRODUCT MATRIX (Architecture Diagram) ========== */
+.pm-zone {
+  border-radius: 4px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+.pm-zone-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.pm-zone-blue { background: #E8F0FE; }
+.pm-zone-blue .pm-zone-title { color: #4A86EB; }
+.pm-zone-purple { background: #F0EDF7; }
+.pm-zone-purple .pm-zone-title { color: #6B5B95; }
+.pm-zone-cyan { background: #E6F7F6; }
+.pm-zone-cyan .pm-zone-title { color: #3CBBB1; }
+
+.pm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.pm-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: all .3s;
+  position: relative;
+}
+.pm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+}
+.pm-card-badge {
+  position: absolute;
+  top: -1px; right: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--cap-orange);
+  padding: 3px 12px;
+  border-radius: 0 0 4px 4px;
+}
+.pm-card-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.pm-card-body { flex: 1; }
+.pm-card-body h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dv-navy);
+  margin: 0 0 12px;
+}
+.pm-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pm-card-features li {
+  font-size: 12px;
+  color: var(--dv-gray);
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--dv-border);
+  line-height: 1.5;
+}
+
+/* ========== FOOTER OVERRIDE ========== */
+/* footer already handled by style.css */
+
+/* ========== ANIMATION ========== */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .dv-hero .container { flex-direction: column; text-align: center; }
+  .dv-hero-left { max-width: 100%; }
+  .dv-hero-actions { justify-content: center; }
+  .dv-hero-right { flex: 0 0 auto; max-width: 300px; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: repeat(2, 1fr); }
+  .pm-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .dv-hero { min-height: auto; padding: 120px 0 60px; }
+  .dv-section { padding: 60px 0; }
+  .dv-section-header h2 { font-size: 26px; }
+  .value-grid { grid-template-columns: 1fr; }
+  .pm-card { flex-direction: column; }
+  .pm-zone { padding: 20px; }
+  .cap-card { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header" id="header" style="background:rgba(13,43,80,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);">
+  <div class="header-inner">
+    <a class="logo" href="index.html" style="color:#fff;">
+      <img src="images/logo.png" alt="云端互联科技" width="40" height="40" loading="eager">
+      <span class="logo-text">云端互联</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html" style="color:rgba(255,255,255,.75);">首页</a></li>
+        <li><a href="index.html#asset-management" style="color:rgba(255,255,255,.75);">数据资产管理</a></li>
+        <li><a href="operations.html" style="color:rgba(255,255,255,.75);">数据资产运营</a></li>
+        <li><a href="data-asset-dev.html" class="active">数据资产开发</a></li>
+        <li><a href="services.html" style="color:rgba(255,255,255,.75);">服务体系</a></li>
+        <li><a href="index.html#cases" style="color:rgba(255,255,255,.75);">客户案例</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#news" class="nav-dropdown-toggle" style="color:rgba(255,255,255,.75);">最新资讯</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="industry-reference.html">行业参考</a></li>
+            <li><a href="index.html#news-policy">政策速递</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact" style="color:rgba(255,255,255,.75);">联系我们</a></li>
+        <li><a href="self-test.html" class="nav-cta" style="color:#ED7D31;background:rgba(237,125,49,.15);">入表自测</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false" style="--bar-color:#fff;">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== HERO ========== -->
+<section class="dv-hero">
+  <div class="container">
+    <div class="dv-hero-left" data-animate>
+      <div class="dv-hero-badge">数据资产开发</div>
+      <h1 class="dv-hero-title">从原始数据到数据资产<br>全链路数据价值激活</h1>
+      <p class="dv-hero-subtitle">云端互联提供一站式数据开发平台，覆盖数据采集、存储、治理、分析、服务全生命周期，帮助企业构建标准化、可运营的数据资产体系。</p>
+      <div class="dv-hero-actions">
+        <a href="index.html#contact" class="btn-dv-primary">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v14M4 8l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          预约演示
+        </a>
+        <a href="#capabilities" class="btn-dv-outline">了解更多</a>
+      </div>
+    </div>
+    <div class="dv-hero-right" data-animate>
+      <!-- Platform mockup SVG -->
+      <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" width="420" height="320">
+        <defs>
+          <linearGradient id="hGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A86EB" stop-opacity=".25"/><stop offset="100%" stop-color="#2a5298" stop-opacity=".08"/></linearGradient>
+        </defs>
+        <!-- outer frame -->
+        <rect x="10" y="10" width="400" height="300" rx="8" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <!-- main panel -->
+        <rect x="30" y="30" width="360" height="260" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <!-- top bar -->
+        <rect x="30" y="30" width="360" height="36" rx="6" fill="rgba(42,82,152,.4)"/>
+        <rect x="30" y="60" width="360" height="6" fill="rgba(42,82,152,.2)"/>
+        <circle cx="48" cy="48" r="4" fill="rgba(255,255,255,.5)"/>
+        <circle cx="60" cy="48" r="4" fill="rgba(255,255,255,.3)"/>
+        <circle cx="72" cy="48" r="4" fill="rgba(255,255,255,.15)"/>
+        <!-- sidebar -->
+        <rect x="30" y="66" width="80" height="224" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <rect x="40" y="76" width="60" height="6" rx="3" fill="rgba(255,255,255,.15)"/>
+        <rect x="40" y="90" width="45" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/>
+        <rect x="40" y="102" width="55" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/>
+        <rect x="40" y="114" width="40" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/>
+        <rect x="40" y="126" width="50" height="5" rx="2.5" fill="rgba(255,255,255,.08)"/>
+        <rect x="40" y="138" width="35" height="5" rx="2.5" fill="rgba(255,255,255,.08)"/>
+        <!-- main content area -->
+        <rect x="118" y="76" width="262" height="204" fill="rgba(255,255,255,.02)" rx="4"/>
+        <!-- data blocks -->
+        <rect x="130" y="86" width="110" height="50" rx="4" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <rect x="134" y="92" width="80" height="6" rx="3" fill="rgba(74,134,235,.5)"/>
+        <rect x="134" y="104" width="60" height="5" rx="2.5" fill="rgba(74,134,235,.3)"/>
+        <rect x="134" y="115" width="70" height="5" rx="2.5" fill="rgba(74,134,235,.2)"/>
+        <rect x="250" y="86" width="120" height="50" rx="4" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <rect x="254" y="92" width="90" height="6" rx="3" fill="rgba(60,187,177,.5)"/>
+        <rect x="254" y="104" width="70" height="5" rx="2.5" fill="rgba(60,187,177,.3)"/>
+        <rect x="130" y="148" width="240" height="40" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <rect x="140" y="158" width="200" height="5" rx="2.5" fill="rgba(107,91,149,.4)"/>
+        <rect x="140" y="170" width="160" height="5" rx="2.5" fill="rgba(107,91,149,.25)"/>
+        <rect x="130" y="200" width="115" height="70" rx="4" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <rect x="134" y="208" width="90" height="6" rx="3" fill="rgba(237,125,49,.45)"/>
+        <rect x="134" y="220" width="70" height="5" rx="2.5" fill="rgba(237,125,49,.25)"/>
+        <rect x="134" y="232" width="85" height="5" rx="2.5" fill="rgba(237,125,49,.2)"/>
+        <rect x="255" y="200" width="115" height="70" rx="4" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <rect x="259" y="208" width="90" height="6" rx="3" fill="rgba(63,81,181,.45)"/>
+        <rect x="259" y="220" width="65" height="5" rx="2.5" fill="rgba(63,81,181,.25)"/>
+        <!-- connection lines -->
+        <line x1="185" y1="136" x2="185" y2="148" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+        <line x1="310" y1="136" x2="310" y2="148" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PLATFORM VALUE OVERVIEW ========== -->
+<section class="dv-section" id="overview">
+  <div class="container">
+    <div class="dv-section-header">
+      <div class="dv-section-tag">平台概述</div>
+      <h2>一站式数据开发平台</h2>
+      <p class="dv-section-desc">平台集产品、技术、方法论于一体，提供从数据采集、存储、治理、分析、服务的全链路能力，助力企业打造智能数据体系。</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card" data-animate>
+        <div class="value-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M3 8h22M3 14h22M3 20h22" stroke="#4A86EB" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="8" r="1.5" fill="#4A86EB"/><circle cx="14" cy="14" r="1.5" fill="#4A86EB"/><circle cx="10" cy="20" r="1.5" fill="#4A86EB"/></svg>
+        </div>
+        <h4>全链路</h4>
+        <p>覆盖采集、存储、治理、分析、服务、运营全生命周期</p>
+      </div>
+      <div class="value-card" data-animate>
+        <div class="value-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#3CBBB1" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="#3CBBB1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>智能化</h4>
+        <p>AI驱动的数据治理、质量监控、智能标签与自动编目</p>
+      </div>
+      <div class="value-card" data-animate>
+        <div class="value-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="18" width="22" height="7" rx="2" stroke="#6B5B95" stroke-width="2"/><rect x="7" y="8" width="14" height="11" rx="2" stroke="#6B5B95" stroke-width="2"/><rect x="10" y="3" width="8" height="6" rx="1.5" stroke="#6B5B95" stroke-width="2"/></svg>
+        </div>
+        <h4>企业级</h4>
+        <p>分布式架构、高可用部署、TB/PB级数据处理能力</p>
+      </div>
+      <div class="value-card" data-animate>
+        <div class="value-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="9" r="3" stroke="#ED7D31" stroke-width="2"/><circle cx="19" cy="9" r="3" stroke="#ED7D31" stroke-width="2"/><circle cx="14" cy="19" r="3" stroke="#ED7D31" stroke-width="2"/><line x1="11.5" y1="10.5" x2="16.5" y2="17.5" stroke="#ED7D31" stroke-width="1.5"/><line x1="16.5" y1="10.5" x2="11.5" y2="17.5" stroke="#ED7D31" stroke-width="1.5"/></svg>
+        </div>
+        <h4>可运营</h4>
+        <p>资产目录、价值评估、服务网关，让数据资产产生业务价值</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SIX CORE CAPABILITIES (2x3 Grid) ========== -->
+<section class="dv-section dv-section-alt" id="capabilities">
+  <div class="container">
+    <div class="dv-section-header">
+      <div class="dv-section-tag">平台能力</div>
+      <h2>六大核心能力</h2>
+      <p class="dv-section-desc">覆盖数据全生命周期的一站式平台能力，从汇聚到运营全面赋能</p>
+    </div>
+    <div class="cap-grid">
+
+      <!-- 1. 数据汇聚 - Blue -->
+      <div class="cap-card cap--blue" data-animate>
+        <div class="cap-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#4A86EB" stroke-width="2"/><line x1="14" y1="3" x2="14" y2="12" stroke="#4A86EB" stroke-width="2" stroke-linecap="round"/><path d="M8 8l6-6 6 6" stroke="#4A86EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>数据汇聚</h3>
+        <p class="cap-card-desc">支持多种数据源，实时或定时抽取数据，确保数据的及时性与完整性。</p>
+        <div class="cap-card-tags">
+          <span>关系型数据库</span><span>非关系型数据库</span><span>文件系统</span><span>外部接口</span><span>日志文件</span>
+        </div>
+        <a href="#products" class="cap-card-more">了解更多 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 2. 数据存储 - Cyan -->
+      <div class="cap-card cap--cyan" data-animate>
+        <div class="cap-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#3CBBB1" stroke-width="2"/><rect x="7" y="10" width="14" height="3" rx="1.5" fill="#3CBBB1" opacity=".4"/><rect x="7" y="15" width="10" height="3" rx="1.5" fill="#3CBBB1" opacity=".25"/><circle cx="5" cy="11.5" r="1" fill="#3CBBB1"/></svg>
+        </div>
+        <h3>数据存储</h3>
+        <p class="cap-card-desc">构建分布式存储架构，适配结构化、半结构化与非结构化数据存储需求。</p>
+        <div class="cap-card-tags">
+          <span>数据库数据</span><span>文件数据</span><span>图片数据</span><span>音频数据</span><span>视频数据</span><span>关系图谱</span><span>时序数据</span>
+        </div>
+        <a href="#products" class="cap-card-more">了解更多 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 3. 数据治理 - Purple -->
+      <div class="cap-card cap--purple" data-animate>
+        <div class="cap-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L26 8v6c0 6-12 12-12 12S2 20 2 14V8L14 2z" stroke="#6B5B95" stroke-width="2" stroke-linejoin="round"/><path d="M9 13l3 3 7-7" stroke="#6B5B95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>数据治理</h3>
+        <p class="cap-card-desc">拥有一系列服务于数据治理的功能模块，涵盖从架构到安全的完整治理链条。</p>
+        <div class="cap-card-tags">
+          <span>数据架构管理</span><span>数据标准管理</span><span>主数据管理</span><span>元数据管理</span><span>数据建模</span><span>数据质量</span><span>数据安全</span><span>生命周期</span>
+        </div>
+        <a href="#products" class="cap-card-more">了解更多 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 4. 数据分析 - Orange -->
+      <div class="cap-card cap--orange" data-animate>
+        <div class="cap-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="14" width="5" height="12" rx="1" fill="#ED7D31" opacity=".25"/><rect x="9" y="8" width="5" height="18" rx="1" fill="#ED7D31" opacity=".45"/><rect x="16" y="4" width="5" height="22" rx="1" fill="#ED7D31" opacity=".65"/><rect x="23" y="10" width="5" height="16" rx="1" fill="#ED7D31" opacity=".85"/></svg>
+        </div>
+        <h3>数据分析</h3>
+        <p class="cap-card-desc">从简单查询、报表制作到复杂的数据挖掘、AI算法应用的一站式分析能力。</p>
+        <div class="cap-card-tags">
+          <span>统计报表</span><span>多维分析</span><span>数据挖掘</span><span>人工智能</span><span>标签管理</span><span>指标管理</span><span>知识图谱</span><span>数据可视化</span>
+        </div>
+        <a href="#products" class="cap-card-more">了解更多 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 5. 数据服务 - Green -->
+      <div class="cap-card cap--green" data-animate>
+        <div class="cap-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#43A047" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="#43A047" opacity=".15"/><path d="M8 8l6 6M20 20l-6-6M20 8l-6 6M8 20l6-6" stroke="#43A047" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>数据服务</h3>
+        <p class="cap-card-desc">平台支持将数据资产封装成 API 服务、微服务等形式，供其他应用灵活调用。</p>
+        <div class="cap-card-tags">
+          <span>数据需求管理</span><span>资产目录管理</span><span>服务接口管理</span><span>共享交换</span><span>数据开放</span><span>服务评价</span>
+        </div>
+        <a href="#products" class="cap-card-more">了解更多 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 6. 数据运营 - Indigo -->
+      <div class="cap-card cap--indigo" data-animate>
+        <div class="cap-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#3F51B5" stroke-width="2"/><path d="M14 6v8l6 6" stroke="#3F51B5" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="#3F51B5"/></svg>
+        </div>
+        <h3>数据运营</h3>
+        <p class="cap-card-desc">面向数据管理人员，进行体系化的数据运维管理，持续提升数据资产价值。</p>
+        <div class="cap-card-tags">
+          <span>数据产品管理</span><span>资产价值评估</span><span>运营考核评价</span><span>运维监控</span>
+        </div>
+        <a href="#products" class="cap-card-more">了解更多 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CORE PRODUCT MATRIX (Architecture Diagram) ========== -->
+<section class="dv-section" id="products">
+  <div class="container">
+    <div class="dv-section-header">
+      <div class="dv-section-tag">核心产品</div>
+      <h2>数据开发平台产品矩阵</h2>
+      <p class="dv-section-desc">六大核心产品覆盖基础平台、核心开发、服务运营三大层级，构建企业级数据中台</p>
+    </div>
+
+    <!-- Blue Zone: 基础平台 -->
+    <div class="pm-zone pm-zone-blue" data-animate>
+      <div class="pm-zone-title">基础平台</div>
+      <div class="pm-grid">
+        <!-- 数据采集引擎 -->
+        <div class="pm-card">
+          <span class="pm-card-badge">热门</span>
+          <div class="pm-card-icon" style="background:rgba(74,134,235,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v6M12 16v6M2 12h6M16 12h6" stroke="#4A86EB" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#4A86EB"/></svg>
+          </div>
+          <div class="pm-card-body">
+            <h4>数据采集引擎</h4>
+            <ul class="pm-card-features">
+              <li>30+数据源接入</li><li>CDC实时同步</li><li>全量/增量/定时</li><li>20万条/秒</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 数据存储平台 -->
+        <div class="pm-card">
+          <div class="pm-card-icon" style="background:rgba(74,134,236,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="#4A86EB" stroke-width="2"/><rect x="7" y="9" width="10" height="2" rx="1" fill="#4A86EB" opacity=".4"/><rect x="7" y="13" width="8" height="1.5" rx=".75" fill="#4A86EB" opacity=".25"/></svg>
+          </div>
+          <div class="pm-card-body">
+            <h4>数据存储平台</h4>
+            <ul class="pm-card-features">
+              <li>湖仓一体</li><li>MPP架构</li><li>亚秒级查询</li><li>存算分离</li><li>冷热分级</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Purple Zone: 核心开发 -->
+    <div class="pm-zone pm-zone-purple" data-animate>
+      <div class="pm-zone-title">核心开发</div>
+      <div class="pm-grid">
+        <!-- 数据治理中心 -->
+        <div class="pm-card">
+          <span class="pm-card-badge">热门</span>
+          <div class="pm-card-icon" style="background:rgba(107,91,149,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v5a8 8 0 01-8 8 8 8 0 01-8-8V6l8-4z" stroke="#6B5B95" stroke-width="2" stroke-linejoin="round"/><path d="M8 11l2.5 2.5L15 9" stroke="#6B5B95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="pm-card-body">
+            <h4>数据治理中心</h4>
+            <ul class="pm-card-features">
+              <li>数据标准</li><li>主数据管理</li><li>质量监控</li><li>安全管控</li><li>全生命周期</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 数据开发IDE -->
+        <div class="pm-card">
+          <div class="pm-card-icon" style="background:rgba(107,91,149,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="16" rx="3" stroke="#6B5B95" stroke-width="2"/><rect x="5" y="7" width="14" height="1.5" rx=".75" fill="#6B5B95" opacity=".3"/><rect x="5" y="10.5" width="10" height="1.5" rx=".75" fill="#6B5B95" opacity=".3"/><rect x="5" y="14" width="12" height="1.5" rx=".75" fill="#6B5B95" opacity=".3"/></svg>
+          </div>
+          <div class="pm-card-body">
+            <h4>数据开发IDE</h4>
+            <ul class="pm-card-features">
+              <li>离线/实时开发</li><li>SQL/FlinkSQL/Jar</li><li>可视化DAG调度</li><li>任务监控</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cyan Zone: 服务与运营 -->
+    <div class="pm-zone pm-zone-cyan" data-animate>
+      <div class="pm-zone-title">服务与运营</div>
+      <div class="pm-grid">
+        <!-- 数据资产目录 -->
+        <div class="pm-card">
+          <span class="pm-card-badge">热门</span>
+          <div class="pm-card-icon" style="background:rgba(60,187,177,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="7" height="7" rx="1.5" stroke="#3CBBB1" stroke-width="2"/><rect x="14" y="2" width="7" height="7" rx="1.5" stroke="#3CBBB1" stroke-width="2"/><rect x="5" y="11" width="7" height="7" rx="1.5" stroke="#3CBBB1" stroke-width="2"/><rect x="14" y="11" width="7" height="7" rx="1.5" stroke="#3CBBB1" stroke-width="2"/></svg>
+          </div>
+          <div class="pm-card-body">
+            <h4>数据资产目录</h4>
+            <ul class="pm-card-features">
+              <li>自动编目</li><li>智能标签</li><li>血缘分析</li><li>资产地图</li><li>价值评估</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 数据服务网关 -->
+        <div class="pm-card">
+          <div class="pm-card-icon" style="background:rgba(60,187,177,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#3CBBB1" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#3CBBB1" opacity=".15"/><path d="M6 6l4 4M18 18l-4-4M18 6l-4 4M6 18l4-4" stroke="#3CBBB1" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="pm-card-body">
+            <h4>数据服务网关</h4>
+            <ul class="pm-card-features">
+              <li>API一键发布</li><li>服务治理</li><li>流量管控</li><li>调用分析</li><li>安全鉴权</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="" width="40" height="40" loading="lazy">
+        <div>
+          <span class="footer-company">云端互联</span>
+          <p class="footer-tagline">数据要素运营服务商</p>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>快速导航</h4>
+        <a href="index.html">首页</a>
+        <a href="index.html#asset-management">数据资产管理</a>
+        <a href="operations.html">数据资产运营</a>
+        <a href="data-asset-dev.html">数据资产开发</a>
+        <a href="services.html">服务体系</a>
+        <a href="index.html#cases">客户案例</a>
+        <a href="index.html#news">最新资讯</a>
+        <a href="index.html#contact">联系我们</a>
+      </div>
+      <div class="footer-contact-col">
+        <h4>联系我们</h4>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4.5A1.5 1.5 0 013.5 3h9A1.5 1.5 0 0114 4.5v7a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 11.5v-7z" stroke="currentColor" stroke-width="1.2"/><path d="M2 4.5L8 9l6-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>contact@cloudlink.com</span></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 2h6l3 7.5L8 14l-6-4.5 3-7.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="8" cy="9" r="2.5" stroke="currentColor" stroke-width="1.2"/></svg><span>028-8525 8888</span></div>
+      </div>
+      <div class="footer-badges-col">
+        <h4>交易所会员</h4>
+        <div class="footer-badges">
+          <span class="footer-badge">上海数据交易所</span>
+          <span class="footer-badge">杭州数据交易所</span>
+          <span class="footer-badge">北京数据交易所</span>
+          <span class="footer-badge">西部数据交易所</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 云端互联. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== 悬浮 ========== -->
+<div class="floating-cta" id="floatingCta">
+  <a href="index.html#contact" class="floating-cta-btn">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6.5A1.5 1.5 0 014.5 5h13A1.5 1.5 0 0119 6.5v9a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 013 15.5v-9z" stroke="currentColor" stroke-width="1.5"/><path d="M3 6.5L11 12l8-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>预约咨询</span>
+  </a>
+</div>
+
+<!-- ========== IntersectionObserver ========== -->
+<script>
+(function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('[data-animate]').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>

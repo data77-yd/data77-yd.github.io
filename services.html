@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="云端互联 - 数据资产入表登记确权服务体系，五步走全流程覆盖">
+<title>服务体系 | 云端互联科技</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="stylesheet" href="style.css">
+<style>
+/* services.html 专属样式 */
+.service-hero{background:linear-gradient(135deg,#f0f6fb 0%,#fdf5ef 100%);padding:100px 0 60px;text-align:center}
+.service-hero .section-num{display:inline-block;font-size:13px;font-weight:700;color:#5B9BD5;background:rgba(91,155,213,.1);padding:4px 14px;border-radius:20px;margin-bottom:16px;letter-spacing:1px}
+.service-hero h1{font-size:36px;font-weight:800;color:#1E293B;margin:0 0 12px;letter-spacing:-.5px}
+.service-hero .hero-sub{font-size:17px;color:#64748B;max-width:640px;margin:0 auto 28px;line-height:1.7}
+.service-hero .hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.service-hero .hero-stat{text-align:center}
+.service-hero .hero-stat-val{font-size:28px;font-weight:800;color:#5B9BD5}
+.service-hero .hero-stat-val.orange{color:#ED7D31}
+.service-hero .hero-stat-label{font-size:12px;color:#94A3B8;margin-top:4px}
+
+.services-main{padding:60px 0}
+.services-main .section-header{margin-bottom:24px}
+.services-main .section-header h2{font-size:28px;font-weight:800;color:#1E293B}
+.services-main .section-desc{font-size:15px;color:#64748B;max-width:720px;margin:12px auto 0;line-height:1.7}
+
+.process-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:48px 0 56px}
+.process-step{text-align:center;flex:0 0 auto}
+.process-step-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;margin:0 auto 8px}
+.process-step-num.blue{background:#5B9BD5}
+.process-step-num.orange{background:#ED7D31}
+.process-step-label{font-size:12px;color:#64748B;max-width:80px;line-height:1.4}
+.process-arrow{color:#CBD5E1;font-size:18px;margin:0 4px;padding-bottom:28px}
+
+@media(max-width:900px){
+  .process-arrow{display:none}
+  .process-flow{gap:16px}
+  .service-hero h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <img src="images/logo.png" alt="云端互联科技" width="40" height="40" loading="eager">
+      <span class="logo-text">云端互联</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="index.html#asset-management">数据资产管理</a></li>
+        <li><a href="operations.html">数据资产运营</a></li>
+        <li><a href="data-asset-dev.html">数据资产开发</a></li>
+        <li><a href="services.html" class="active" aria-current="page">服务体系</a></li>
+        <li><a href="index.html#cases">客户案例</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#news" class="nav-dropdown-toggle">最新资讯</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="industry-reference.html">行业参考</a></li>
+            <li><a href="index.html#news-policy">政策速递</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact">联系我们</a></li>
+        <li><a href="partner.html">招募合伙人</a></li>
+        <li><a href="self-test.html" class="nav-cta">入表自测</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ========== Hero ========== -->
+<section class="service-hero">
+  <div class="container">
+    <span class="section-num">服务体系</span>
+    <h1>数据资产入表登记确权</h1>
+    <p class="hero-sub">依据财政部《企业数据资源相关会计处理暂行规定》（财会〔2023〕11号），覆盖从资源盘点到会计入表全流程，同步跨越法律确权、会计准则、登记监管三道门槛。</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">2-3<span style="font-size:16px;font-weight:500;"> 个月</span></div>
+        <div class="hero-stat-label">执行周期</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val orange">5</div>
+        <div class="hero-stat-label">核心步骤</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">11.2-18<span style="font-size:16px;font-weight:500;"> 万</span></div>
+        <div class="hero-stat-label">参考费用</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 五步流程总览 ========== -->
+<section class="services-main">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <span class="section-num">五步走</span>
+      <h2>服务流程</h2>
+      <p class="section-desc">从数据资源盘点到会计入表，每一步均有明确的交付物和周期承诺，确保可落地、可追溯、可审计。</p>
+    </div>
+
+    <!-- 流程条 -->
+    <div class="process-flow">
+      <div class="process-step"><div class="process-step-num blue">1</div><div class="process-step-label">数据资源盘点</div></div>
+      <span class="process-arrow">→</span>
+      <div class="process-step"><div class="process-step-num orange">2</div><div class="process-step-label">资产分类与入表判定</div></div>
+      <span class="process-arrow">→</span>
+      <div class="process-step"><div class="process-step-num blue">3</div><div class="process-step-label">合规溯源与要件准备</div></div>
+      <span class="process-arrow">→</span>
+      <div class="process-step"><div class="process-step-num orange">4</div><div class="process-step-label">登记申请与确权</div></div>
+      <span class="process-arrow">→</span>
+      <div class="process-step"><div class="process-step-num blue">5</div><div class="process-step-label">入表操作</div></div>
+    </div>
+
+    <!-- 阶段总览 -->
+    <div class="phase-overview" style="text-align:center;max-width:800px;margin:0 auto 40px;">
+      <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
+        依据财政部《企业数据资源相关会计处理暂行规定》（财会〔2023〕11号）、
+        《数据安全法》《个人信息保护法》及《数据二十条》"三权分置"框架，
+        本阶段覆盖从资源盘点到会计入表的全流程，同步跨越法律确权、会计准则和登记监管三道门槛。
+      </p>
+    </div>
+
+    <div class="service-matrix">
+      <!-- 步骤1 -->
+      <div class="service-card" data-animate>
+        <div class="service-card-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(91,155,213,.1)"/><path d="M12 14h16M12 21h16M12 28h12" stroke="#5B9BD5" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="service-card-tag">步骤一</div>
+        <h4>数据资源盘点</h4>
+        <p>按业务域和数据生命周期划定范围，从来源合规性、数据形态、加工深度、更新频率等维度全面盘点，建立字段级数据血缘图谱</p>
+        <div class="service-card-meta">
+          <span class="meta-item"><strong>交付物：</strong>《数据资源盘点报告》《数据质量评估报告》</span>
+          <span class="meta-item"><strong>周期：</strong>4-6 周</span>
+        </div>
+      </div>
+
+      <!-- 步骤2 -->
+      <div class="service-card" data-animate>
+        <div class="service-card-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(237,125,49,.1)"/><path d="M12 26L18 16l8-2 2 8-8 6-8-2z" stroke="#ED7D31" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="service-card-tag">步骤二</div>
+        <h4>资产分类与入表范围判定</h4>
+        <p>按数据产品/数据资源/数据工具三级分类体系，映射至无形资产（自用型）或存货（待售型）科目；依据《暂行规定》五项资本化条件逐项判定</p>
+        <div class="service-card-meta">
+          <span class="meta-item"><strong>交付物：</strong>《可入表数据资产清单》《资本化判定备忘录》</span>
+          <span class="meta-item"><strong>周期：</strong>2-3 周</span>
+        </div>
+      </div>
+
+      <!-- 步骤3 -->
+      <div class="service-card" data-animate>
+        <div class="service-card-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(91,155,213,.1)"/><path d="M14 12l12 8-12 8V12z" fill="#5B9BD5" opacity=".3" stroke="#5B9BD5" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <div class="service-card-tag">步骤三</div>
+        <h4>合规溯源与要件准备</h4>
+        <p>准备登记六大类要件：主体资格证明、权属证据链（采集→授权→加工→存储闭环）、资产描述、合规声明（含PIA）、技术文档、财务资料</p>
+        <div class="service-card-meta">
+          <span class="meta-item"><strong>交付物：</strong>登记要件全套材料</span>
+          <span class="meta-item"><strong>周期：</strong>4-6 周</span>
+        </div>
+      </div>
+
+      <!-- 步骤4 -->
+      <div class="service-card" data-animate>
+        <div class="service-card-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(237,125,49,.1)"/><path d="M20 10l6 8H14l6-8z" stroke="#ED7D31" stroke-width="2" stroke-linejoin="round"/><circle cx="20" cy="26" r="2" fill="#ED7D31"/></svg></div>
+        <div class="service-card-tag">步骤四</div>
+        <h4>登记申请与确权</h4>
+        <p>对接属地数据交易所或国家统一登记平台，三权分置确权：持有权（采集协议+存储日志）、加工使用权（加工流程+算法说明）、经营权（产品登记证书+交易合同）</p>
+        <div class="service-card-meta">
+          <span class="meta-item"><strong>交付物：</strong>《数据资产登记证书》、权属确认法律意见书</span>
+          <span class="meta-item"><strong>周期：</strong>4-6 周</span>
+        </div>
+      </div>
+
+      <!-- 步骤5 -->
+      <div class="service-card" data-animate>
+        <div class="service-card-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(91,155,213,.1)"/><rect x="12" y="12" width="16" height="16" rx="3" stroke="#5B9BD5" stroke-width="2"/><path d="M20 16v8M16 20h8" stroke="#5B9BD5" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="service-card-tag">步骤五</div>
+        <h4>入表操作</h4>
+        <p>会计科目设置（无形资产-数据资源 / 存货-数据资源 / 开发支出-数据资源），初始计量（外购/自研分别计量），使用寿命估计（3-7年），年度减值测试框架</p>
+        <div class="service-card-meta">
+          <span class="meta-item"><strong>交付物：</strong>入账凭证、资产减值测试框架</span>
+          <span class="meta-item"><strong>周期：</strong>2-3 周</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 法律依据 -->
+    <div style="text-align:center;margin-top:40px;padding:28px 20px;background:var(--card-bg);border-radius:12px;border:1px solid var(--border-color);">
+      <p style="font-size:13px;color:var(--text-secondary);margin:0 0 8px;">法律依据与框架</p>
+      <p style="font-size:14px;color:var(--text-primary);margin:0;line-height:1.8;">
+        《企业数据资源相关会计处理暂行规定》（财会〔2023〕11号）&nbsp;|&nbsp;
+        《数据安全法》&nbsp;|&nbsp;
+        《个人信息保护法》&nbsp;|&nbsp;
+        《数据二十条》"三权分置"
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center;margin-top:56px;">
+      <a href="index.html#contact" style="display:inline-block;padding:14px 40px;background:#ED7D31;color:#fff;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;transition:all .25s;box-shadow:0 4px 16px rgba(237,125,49,.3);">预约咨询</a>
+      <a href="self-test.html" style="display:inline-block;padding:14px 40px;margin-left:16px;border:2px solid #5B9BD5;color:#5B9BD5;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;transition:all .25s;">入表自测 →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="" width="40" height="40" loading="lazy">
+        <div>
+          <span class="footer-company">云端互联</span>
+          <p class="footer-tagline">数据要素运营服务商</p>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>快速导航</h4>
+        <a href="index.html">首页</a>
+        <a href="index.html#asset-management">数据资产管理</a>
+        <a href="operations.html">数据资产运营</a>
+        <a href="data-asset-dev.html">数据资产开发</a>
+        <a href="services.html">服务体系</a>
+        <a href="index.html#cases">客户案例</a>
+        <a href="index.html#news">最新资讯</a>
+        <a href="index.html#contact">联系我们</a>
+        <a href="partner.html">招募合伙人</a>
+      </div>
+      <div class="footer-contact-col">
+        <h4>联系我们</h4>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4.5A1.5 1.5 0 013.5 3h9A1.5 1.5 0 0114 4.5v7a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 11.5v-7z" stroke="currentColor" stroke-width="1.2"/><path d="M2 4.5L8 9l6-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>contact@cloudlink.com</span></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 2h6l3 7.5L8 14l-6-4.5 3-7.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="8" cy="9" r="2.5" stroke="currentColor" stroke-width="1.2"/></svg><span>028-8525 8888</span></div>
+      </div>
+      <div class="footer-badges-col">
+        <h4>交易所会员</h4>
+        <div class="footer-badges">
+          <span class="footer-badge">上海数据交易所</span>
+          <span class="footer-badge">杭州数据交易所</span>
+          <span class="footer-badge">北京数据交易所</span>
+          <span class="footer-badge">西部数据交易所</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 云端互联. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
